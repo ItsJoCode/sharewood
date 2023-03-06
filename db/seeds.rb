@@ -12,7 +12,7 @@ user = User.new(
   first_name: "Jonathan",
   last_name: "Bergerot",
   email: "jobergerot@gmail.com",
-  address: "Rua Thales De Azevedo Salvador - Bahia, 41603, Brésil",
+  address: "Rue Du Château D'eau, 33000 Bordeaux, France",
   role: 1,
   password: PASSWD
 )
@@ -23,7 +23,7 @@ user = User.new(
   first_name: "Anthony",
   last_name: "Gombert",
   email: "anthonygombert33@gmail.com",
-  address: "Jamaica Plain, Massachusetts, États-Unis",
+  address: "107 Cours Balguerie Stuttenberg, 33300 Bordeaux, France",
   role: 0,
   password: PASSWD
 )
@@ -34,7 +34,7 @@ user = User.new(
   first_name: "Ronan",
   last_name: "Laporte-Guiziou",
   email: "ronan.laporte@gmail.com",
-  address: "Concarneau, Finistère, France",
+  address: "Rue Du Palais Gallien, 33000 Bordeaux, France",
   role: 1,
   password: PASSWD
 )
@@ -58,8 +58,7 @@ puts '....... Users finished!'
 puts 'Creating a product ...'
 product = Product.new(
   name: "Le pellet c'est trop bon !",
-  description: "Les granulés de bois compressés de notre sac de pellets sont la solution de chauffage idéale pour votre maison,
-                 brûlant efficacement et proprement pour vous offrir une chaleur constante et agréable tout au long de l'hiver.",
+  description: "Les granulés de bois compressés de notre sac de pellets sont la solution de chauffage idéale pour votre maison.",
   store_price: 7,
   reference: 66_899_266,
   weight: 15,
@@ -83,41 +82,41 @@ addr = [
 sale = Sale.new(
   address: addr[0],
   sale_capacity: 50,
-  end_date: Date.new + 4,
+  end_date: Date.today + 4,
   price_reduction: 10,
   progress: 0,
   product_id: product.id
 )
-sale.create!
+sale.save!
 
 sale = Sale.new(
   address: addr[1],
   sale_capacity: 100,
-  end_date: Date.new + 10,
+  end_date: Date.today + 10,
   price_reduction: 12,
   progress: 0,
   product_id: product.id
 )
-sale.create!
+sale.save!
 
 sale = Sale.new(
   address: addr[2],
   sale_capacity: 150,
-  end_date: Date.new + 14,
+  end_date: Date.today + 14,
   price_reduction: 20,
   progress: 0,
   product_id: product.id
 )
-sale.create!
+sale.save!
 
 sale = Sale.new(
   address: addr[3],
   sale_capacity: 200,
-  end_date: Date.new + 24,
+  end_date: Date.today + 24,
   price_reduction: 30,
   progress: 0,
   product_id: product.id
 )
-sale.create!
+sale.save!
 
 puts '....... Sales finished!'
