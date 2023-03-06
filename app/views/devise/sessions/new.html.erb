@@ -1,20 +1,47 @@
-<h2>Log in</h2>
+<div class="row p-5">
+  <div class="log col-12 col-sm-4 mx-auto p-4">
+    <h2 class="text-center">S'enregistrer</h2>
+    <!-- Bouton Facebook Connect -->
+      <div class="col-12 mb-3 pt-2">
+        <a href="#" class="btn-fb">
+          <i class="fab fa-facebook-f"></i>   Se connecter avec Facebook
+        </a>
+      </div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <!-- Bouton Gmail Connect -->
+      <div class="col-12 mb-0">
+        <a href="#" class="btn-gmail">
+          <i class="fa fa-envelope"></i>   Se connecter avec Gmail
+        </a>
+      </div>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
+      data: {turbo: false}) do |f| %>
+      <div class="col-12 mb-3 pt-4">
+        <%= f.input :email,
+                    label: false,
+                    placeholder: "Email",
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+      </div>
+      <div class="col-12 mb-3">
+        <%= f.input :password,
+                    label: false,
+                    placeholder: "Mot de passe",
+                    required: false,
+                    input_html: { autocomplete: "current-password" } %>
+      </div>
+      <div class="col-12 mb-3 no-password">
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <%= link_to "Mot de passe oublié?", new_user_password_path %>
+      </div>
+      <div class="col-12 mb-3">
+        <%= f.submit "Se connecter", class: "btn btn-primary btn-lg w-100" %>
+      </div>
+      <hr>
+      <div class="no-account">
+        <p>Pas de compte? <%= link_to "S'inscrire", new_user_registration_path %> </p>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
