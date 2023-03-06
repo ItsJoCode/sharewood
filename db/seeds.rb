@@ -30,6 +30,7 @@ user = User.new(
   password: PASSWD
 )
 user.save!
+puts "#{user.first_name} OK !!!"
 
 user = User.new(
   first_name: "Anthony",
@@ -40,6 +41,7 @@ user = User.new(
   password: PASSWD
 )
 user.save!
+puts "#{user.first_name} OK !!!"
 
 user = User.new(
   first_name: "Ronan",
@@ -50,6 +52,7 @@ user = User.new(
   password: PASSWD
 )
 user.save!
+puts "#{user.first_name} OK !!!"
 
 user = User.new(
   first_name: "Florent",
@@ -58,7 +61,8 @@ user = User.new(
   address: "51 Cours Pasteur, 33000 Bordeaux, France",
   role: 0,
   password: PASSWD
- )
+)
 user.save!
+puts "#{user.first_name} OK !!!"
 
-puts 'Users finished!'
+puts '....... Users finished!'
