@@ -30,6 +30,6 @@ class Owner::SalesController < ApplicationController
   end
 
   def sale_params
-    params.require(:sale).permit(:address, :sale_capacity, :end_date, :price_reduction, :progress)
+    params.require(:sale).permit(:address, :sale_capacity, :end_date, :price_reduction, :progress, :photo)
   end
 end
