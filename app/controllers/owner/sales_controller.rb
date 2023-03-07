@@ -1,5 +1,5 @@
 class Owner::SalesController < ApplicationController
-  before_action :set_product, only: %i[show]
+  before_action :set_sale, only: %i[show]
 
   def index
     @sales = Sale.where(product_id: current_user.products)
