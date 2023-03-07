@@ -1,4 +1,14 @@
 // Specific CSS for your home-page
+
+body {
+
+
+}
+
 .main-container {
   margin-bottom: 20px;
+  min-height: 84vh;
+  display: flex;
+  flex-direction: column;
+
 }

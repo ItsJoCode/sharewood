@@ -5,3 +5,10 @@
   <li><%= sale.address %></li>
 <% end %>
 </ul>
+<% unless @sales.empty? %>
+  <div class="geo-map"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+<% end %>

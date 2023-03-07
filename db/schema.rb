@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_03_07_132407) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +41,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_132407) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+=======
+ActiveRecord::Schema[7.0].define(version: 2023_03_07_113336) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "creators", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo_url"
+>>>>>>> 9d71d881dabcb73369858b0fbb31c651a9ca72d9
   end
 
   create_table "orders", force: :cascade do |t|
