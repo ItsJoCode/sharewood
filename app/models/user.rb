@@ -8,9 +8,10 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   geocoded_by :address
 
-  validates :first_name, :last_name, :email, :password, :role, presence: true
+  validates :first_name, :last_name, :email, :password, :role, :address, presence: true
   validates_uniqueness_of :first_name, scope: :last_name
   validates :email, uniqueness: true
   validates :password, length: { in: 6..20 }
