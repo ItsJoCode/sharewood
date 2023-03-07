@@ -1,2 +1,7 @@
-<h1>Owner::Sales#index</h1>
-<p>Find me in app/views/owner/sales/index.html.erb</p>
+<h1>My Sales</h1>
+
+<ul>
+<% @sales.each do |sale| %>
+  <li><%= sale.address %></li>
+<% end %>
+</ul>

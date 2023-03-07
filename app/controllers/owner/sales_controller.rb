@@ -2,7 +2,7 @@ class Owner::SalesController < ApplicationController
   before_action :set_product, only: %i[show]
 
   def index
-    @sales = Sale.where(user: current_user)
+    @sales = Sale.where(product_id: current_user.products)
   end
 
   def show
@@ -13,8 +13,9 @@ class Owner::SalesController < ApplicationController
   end
 
   def create
-    @sale = Sale.new(product_params)
-    @sale.user = current_user
+    @sale = Sale.new(sale_params)
+    @product = Product.find(params[:product_id])
+    @sale.product = @product
     if @sale.save
       redirect_to owner_sale_path(@sale)
     else
