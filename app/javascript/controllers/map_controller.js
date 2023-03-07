@@ -20,11 +20,17 @@ import { Controller } from "@hotwired/stimulus"
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
+      // Create a HTML element for your custom marker
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker.marker_html
+
+      // Pass the element as an argument to the new marker
+      new mapboxgl.Marker(customMarker)
+        .setLngLat([marker.lng, marker.lat])
         .addTo(this.map)
     })
   }
+
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
