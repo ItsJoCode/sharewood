@@ -1,5 +1,10 @@
+$footer-height: 260px;
+
+
 .site-footer
 {
+  margin-top: auto;
+  height: #{$footer-height};
   background-color:#3B5B50;
   padding:45px 0 20px;
   font-size:15px;
