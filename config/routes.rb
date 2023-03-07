@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :orders, only: %i[index show]
   end
 
+  resources :creators, only: %i[index show]
   resources :products, only: %i[show]
   resources :sales, only: %i[index show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

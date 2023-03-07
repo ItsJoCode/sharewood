@@ -1,0 +1,12 @@
+
+
+<% @creators.each do |creator|%>
+  <%= link_to creator_path(creator), class:"text-decoration-none" do %>
+    <div class="card-product">
+      <img src=<%= creator.photo_url %> />
+      <div class="card-product-infos">
+        <h2><%=creator.name%></h2>
+      </div>
+    </div>
+  <% end %>
+<% end %>
