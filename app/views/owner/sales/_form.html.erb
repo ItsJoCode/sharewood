@@ -1,0 +1,30 @@
+<div class="row p-5">
+    <div class="log col-12 col-sm-4 mx-auto p-4">
+      <h2 class="text-center">Quel est votre vente?</h2>
+      <%= simple_form_for [:owner, sale] do |f| %>
+        <div class="col-12 mb-3 pt-5">
+          <%= f.input :address,
+                      label: false,
+                      placeholder: "Addresse" %>
+        </div>
+        <div class="col-12 mb-3">
+          <%= f.input :sale_capacity,
+                      label: false,
+                      placeholder: "Capacité de la vente" %>
+        </div>
+        <div class="col-12 mb-3">
+          <%= f.input :end_date,
+                      label: false,
+                      placeholder: "Fin de la vente" %>
+        </div>
+        <div class="col-12 mb-3">
+          <%= f.input :price_reduction,
+                      label: false,
+                      placeholder: "Prix de la vente réduit" %>
+        </div>
+        <div class="col-12 mb-3">
+          <%= f.submit "Ajouter d'une vente", class: "btn btn-primary btn-lg w-100" %>
+        </div>
+      <% end %>
+    </div>
+</div>
