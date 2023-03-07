@@ -31,7 +31,6 @@ import { Controller } from "@hotwired/stimulus"
     })
   }
 
-
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
