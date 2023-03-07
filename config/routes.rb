@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
     resources :orders, only: %i[index show]
   end
+
+  resources :creators, only: %i[index show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
