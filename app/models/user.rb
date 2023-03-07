@@ -12,4 +12,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum :role, { customer: 0, owner: 1 }
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
