@@ -1,6 +1,6 @@
-# User.destroy_all
-# Product.destroy_all
-# Sale.destroy_all
+User.destroy_all
+Product.destroy_all
+Sale.destroy_all
 # Order.destroy_all
 # Review.destroy_all
 
