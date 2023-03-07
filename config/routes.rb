@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "sales#index"
+  get '/home', to: 'pages#home'
 
   namespace :owner do
     resources :products, only: %i[index show new create] do

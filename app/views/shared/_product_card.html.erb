@@ -1,0 +1,24 @@
+<div class="container my-5">
+  <div class="cards">
+    <% 4.times do %>
+    <div class="card-pellet">
+      <div class="card-image">
+        <%= image_tag "pellet_test.png" %>
+      </div>
+      <div class="card-content">
+        <div class="card-header">
+          <p class="card-title">Product Name</p>
+          <p class="card-lot"><em>Lot de 130</em></p>
+        </div>
+        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt finibus mauris, vel hendrerit purus ullamcorper eu.</p>
+        <div class="card-footer">
+          <div class="card-price">$99.99</div>
+          <div class="card-progress">
+            <div class="progress-bar" style="width: 70%;"></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
