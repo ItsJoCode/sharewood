@@ -8,20 +8,29 @@
             <div class="col-6 mb-3">
               <%= f.input :first_name,
                           label: false,
+                          autofocus: true,
+                          required: true,
                           placeholder: "Prénom" %>
             </div>
             <div class="col-6 mb-3">
               <%= f.input :last_name,
                           label: false,
+                          required: true,
                           placeholder: "Nom" %>
             </div>
+          </div>
+          <div class="col-12 mb-3">
+            <%= f.input :role, collection: User::ROLE,
+                        label: false,
+                        required: true,
+                        placeholder: "Role" %>
+
           </div>
           <div class="col-12 mb-3">
             <%= f.input :email,
                         label: false,
                         placeholder: "Email",
                         required: true,
-                        autofocus: true,
                         input_html: { autocomplete: "email" },
                         class: "form-group" %>
           </div>
@@ -55,4 +64,4 @@
           </div>
       <% end %>
     </div>
-  </div>
+</div>
