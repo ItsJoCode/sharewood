@@ -1,0 +1,49 @@
+<div class="row p-5">
+    <div class="log col-12 col-sm-4 mx-auto p-4">
+      <h2 class="text-center">Quel est votre produit?</h2>
+      <%= simple_form_for [:owner, product] do |f| %>
+        <div class="col-12 mb-3 pt-5">
+          <%= f.input :name,
+                      label: false,
+                      placeholder: "Nom du produit" %>
+        </div>
+        <div class="col-12 mb-3">
+          <%= f.input :description,
+                      label: false,
+                      placeholder: "Description" %>
+        </div>
+        <div class="col-12 mb-3">
+          <%= f.input :brand,
+                      label: false,
+                      placeholder: "Marque du produit" %>
+        </div>
+        <div class="row">
+          <div class="col-6 mb-3">
+            <%= f.input :store_price,
+                        label: false,
+                        placeholder: "Prix du produit" %>
+          </div>
+          <div class="col-6 mb-3">
+            <%= f.input :reference,
+                        label: false,
+                        placeholder: "Référence" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 mb-3">
+            <%= f.input :weight,
+                        label: false,
+                        placeholder: "Poids" %>
+          </div>
+          <div class="col-6 mb-3">
+            <%= f.input :eco_score,
+                        label: false,
+                        placeholder: "Eco Score" %>
+          </div>
+        </div>
+        <div class="col-12 mb-3">
+          <%= f.submit "Ajouter un produit", class: "btn btn-primary btn-lg w-100" %>
+        </div>
+      <% end %>
+    </div>
+</div>

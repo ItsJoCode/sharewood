@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "sales#index"
   namespace :owner do
     resources :products, only: %i[index show new create]
+    resources :sales, only: %i[index show new create]
   end
   resources :products, only: %i[show]
   resources :sales, only: %i[index show]
