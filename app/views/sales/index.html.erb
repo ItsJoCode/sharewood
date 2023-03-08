@@ -2,6 +2,6 @@
 
 <ul>
   <% @sales.each do |sale| %>
-    <li><%= link_to sale.address, sale_path(sale) %></li>
+    <li><%= link_to sale.address, sale_path(sale) %> by <%= sale.product.user.first_name %> (<%= sale.product.user.email %>)</li>
   <% end %>
 </ul>

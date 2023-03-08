@@ -22,7 +22,7 @@ class User < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   def near_sales
-    Sale.where(product_id: self.products).near(self, 10)
+    Sale.where(product_id: self.products).near(self, 30)
   end
 
   def customer?
