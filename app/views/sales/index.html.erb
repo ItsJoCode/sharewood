@@ -1,5 +1,20 @@
 <h1>Sales</h1>
 
+<div class="search-container mb-5">
+  <%# <form>
+    <input type="text" placeholder="Search...">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form> %>
+  <%= form_with url: sales_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search..."
+  %>
+  <%= submit_tag '<i class="fa fa-search"></i>'.html_safe %>
+<% end %>
+</div>
+
 <ul>
   <% @sales.each do |sale| %>
     <li><%= link_to sale.address, sale_path(sale) %></li>

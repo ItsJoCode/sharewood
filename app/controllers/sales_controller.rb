@@ -2,7 +2,11 @@ class SalesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @sales = Sale.all
+    if params[:query].present?
+      @sales = Sale.where("address ILIKE ?", "%#{params[:query]}%")
+    else
+      @sales = Sale.all
+    end
   end
 
   def show
