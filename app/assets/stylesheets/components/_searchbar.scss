@@ -6,9 +6,11 @@
 
 .search-container {
 
-  form {
-  position: relative;
   display: flex;
+  position: relative;
+
+  form {
+    display: flex;
   }
 
   input[type="text"] {
@@ -28,7 +30,7 @@
     }
   }
 
-  input[type="submit"] {
+  button[type="submit"] {
     position: absolute;
     left: 208px;
     background-color: #d35400;

@@ -1,22 +1,22 @@
 <h1>Sales</h1>
 
-<div class="search-container mb-5">
-  <%# <form>
-    <input type="text" placeholder="Search...">
-    <button type="submit"><i class="fa fa-search"></i></button>
-  </form> %>
-  <%= form_with url: sales_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Search..."
-  %>
-  <%= submit_tag '<i class="fa fa-search"></i>'.html_safe %>
-<% end %>
-</div>
-
-<ul>
-  <% @sales.each do |sale| %>
-    <li><%= link_to sale.address, sale_path(sale) %></li>
+<div class="main-sale-card" data-controller="search-sales">
+  <div class="search-container mb-3">
+    <%= form_with url: sales_path, method: :get, html: {class: "d-flex", data:{search_sales_target: "form"}} do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search...",
+      data: {
+              search_sales_target: "input",
+              action: "keyup->search-sales#update"
+            }
+    %>
+    <%= button_tag do %>
+      <i class="fa fa-search"></i>
+    <% end %>
   <% end %>
-</ul>
+  </div>
+
+  <%= render 'sales/list', sales: @sales %>
+</div>

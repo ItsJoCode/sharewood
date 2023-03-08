@@ -7,6 +7,11 @@ class SalesController < ApplicationController
     else
       @sales = Sale.all
     end
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "sales/list", locals: { sales: @sales }, formats: [:html] }
+    end
   end
 
   def show
