@@ -3,7 +3,7 @@ class SalesController < ApplicationController
 
   def index
     if params[:query].present?
-      @sales = Sale.where("address ILIKE ?", "%#{params[:query]}%")
+      @sales = Sale.global_search(params[:query])
     else
       @sales = Sale.all
     end
