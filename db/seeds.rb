@@ -120,3 +120,37 @@ sale = Sale.new(
 sale.save!
 
 puts '....... Sales finished!'
+
+
+#--- Creators ---#
+puts "Creating some creators ..."
+
+creator = Creator.new(
+  name: "Anthony",
+  description: "Après avoir travaillé pendant plusieurs années en tant que commercial et entrepreneur, j'ai décidé de me lancer dans le développement web en suivant la formation du Wagon.",
+  photo_url: "https://ca.slack-edge.com/T02NE0241-U04K2D8070B-3c6ce5975412-512",
+)
+creator.save!
+
+creator = Creator.new(
+  name: "Jonathan",
+  description: "I'm a software engineer, i worked two years in aeronautics domain. Today, I want to learn some modern technologies in web development.",
+  photo_url: "https://ca.slack-edge.com/T02NE0241-U04K2D8070B-3c6ce5975412-512",
+)
+creator.save!
+
+
+creator = Creator.new(
+  name: "Ronan",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.",
+  photo_url: "https://ca.slack-edge.com/T02NE0241-U04K2D8070B-3c6ce5975412-512",
+)
+creator.save!
+
+
+creator = Creator.new(
+  name: "Florent",
+  description: "Experienced audiovisual and IT professional with strong technical skills in streaming, video production, and audio-visual installations. I am a self-motivated and creative person with a strong sense of responsibility and a passion for technology.",
+  photo_url: "https://ca.slack-edge.com/T02NE0241-U04K2D8070B-3c6ce5975412-512",
+)
+creator.save!
