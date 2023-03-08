@@ -1,0 +1,12 @@
+<div class="card-content">
+  <div class="card-header">
+    <p class="card-title"> Lot de <%= sale.sale_capacity %></p>
+    <p class="card-lot"><em> Fin le <%= sale.end_date.strftime("%d/%m/%y") %> </em></p>
+  </div>
+  <div class="card-footer">
+    <div class="card-price"> <p><%= sale.price_reduction %> €</p></div>
+    <div class="card-progress">
+      <div class="progress-bar" style="width: 70%;"></div>
+    </div>
+  </div>
+</div>

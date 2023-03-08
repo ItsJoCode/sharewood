@@ -23,6 +23,7 @@
 .card-image {
   position: relative;
   padding-top: 75%;
+  margin-bottom: 20px;
 
   img {
   position: absolute;
@@ -32,10 +33,18 @@
   height: 100%;
   object-fit: cover;
   }
+
+  .card-eco-score {
+    position: absolute;
+    display: flex;
+    color: #7bf1a8;
+    top: 10px;
+    left: 12px;
+  }
 }
 
 .card-content {
-  padding: 20px;
+  padding: 0 20px;
 }
 
 .card-header {
@@ -57,9 +66,15 @@
   line-height: 1.5;
 }
 
+.card-capacity_date {
+  display: flex;
+  justify-content: space-between;
+}
+
 .card-footer {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .card-price {

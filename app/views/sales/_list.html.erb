@@ -1,7 +1,11 @@
 <div class="sale-card" data-search-sales-target='list'>
-  <ul>
+  <div class="cards">
     <% sales.each do |sale| %>
-      <li><%= link_to sale.address, sale_path(sale) %> by <%= sale.product.user.first_name %> (<%= sale.product.user.email %>)</li>
+      <div class="card-pellet">
+        <%= render 'products/card_product', product: sale.product %>
+        <br>
+        <%= render 'card_sale_footer', sale: sale %>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
