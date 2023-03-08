@@ -1,0 +1,21 @@
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= image_path "pellet_card_product" %>')">
+  <div class="info-top-flex">
+    <div class="card-ecoscore">
+      <%= '<i class="fa-solid fa-leaf"></i>'.html_safe * @product.eco_score %>
+      <%= '<i class="fa-solid fa-leaf" style="color: #C7E8CA"></i>'.html_safe * (3 - @product.eco_score) %>
+    </div>
+    <div class="heart">
+      <p>heart</p>
+    </div>
+  </div>
+  <div class="info-bottom-flex">
+    <div class="info-bottom-left">
+        <p><%= @product.name %></p>
+        <p><%= 'RATING' %></p>
+    </div>
+    <div class="info-bottom-right">
+        <p><%= @product.weight %> kg</p>
+        <p><%= "SOMETHING" %></p>
+    </div>
+  </div>
+</div>
