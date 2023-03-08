@@ -1,7 +1,18 @@
-<h1>Sales</h1>
+<div class="main-sale-card mt-3" data-controller="search-sales">
+  <div class="search-container mb-2">
+    <%= form_with url: sales_path, method: :get, html: {class: "d-flex", data:{search_sales_target: "form"}} do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search...",
+      data: {
+              search_sales_target: "input",
+              action: "keyup->search-sales#update"
+            }
+    %>
+    <%= button_tag do %>
+      <i class="fa fa-search"></i>
+    <% end %>
 
-<ul>
-  <% @sales.each do |sale| %>
-    <li><%= link_to sale.address, sale_path(sale) %> by <%= sale.product.user.first_name %> (<%= sale.product.user.email %>)</li>
-  <% end %>
-</ul>
+  <%= render 'sales/list', sales: @sales %>
+</div>
