@@ -22,7 +22,7 @@
         <p>Prix total: <span data-range-slider-target="price"></span> €</p>
         <p>Poids total: <span data-range-slider-target="weight"></span> Kg</p>
       </div>
-      <%= link_to "Submit", "#", class: "btn btn-lg w-100" %>
+      <%= link_to "Commander", customer_orders_path, class: "btn btn-lg w-100" %>
     </div>
     <div class="countdown" data-controller="countdown" data-countdown-endtime-value="<%= @sale.end_date %>">
       <div class="mx-4"><h1><i class="fa-solid fa-clock"></i> Fin de la vente dans</h1></div>
