@@ -1,6 +1,9 @@
-<div class="card-wrapper" id="card-wrapper">
-  <!-- partiale product -->
-  <%= render "card_product" %>
-  <!-- partiale product footer -->
-  <%= render "card_product_footer" %>
+<div class="card-bg">
+  <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= image_path "pellet_card_product" %>')"></div>
+  <div class="card-wrapper" id="card-wrapper">
+    <!-- partiale product -->
+    <%= render "card_product", product: @product %>
+    <!-- partiale pool -->
+    <%= render "card_pool", product: @product %>
+  </div>
 </div>
