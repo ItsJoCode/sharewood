@@ -1,21 +1,17 @@
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= image_path "pellet_card_product" %>')">
-  <div class="info-top-flex">
-    <div class="card-ecoscore">
-      <%= '<i class="fa-solid fa-leaf"></i>'.html_safe * product.eco_score %>
-      <%= '<i class="fa-solid fa-leaf" style="color: #E9F5DB"></i>'.html_safe * (3 - product.eco_score) %>
-    </div>
-    <div class="heart">
-      <p>heart</p>
-    </div>
+<div class="card-image">
+  <%= image_tag "pellet_card_product" %>
+  <div class="card-eco-score">
+    <%= '<i class="fa-solid fa-leaf"></i>'.html_safe * product.eco_score %>
+    <%= '<i class="fa-solid fa-leaf" style="color: #e9f5db"></i>'.html_safe * (3 - product.eco_score) %>
   </div>
-  <div class="info-bottom-flex">
-    <div class="info-bottom-left">
-        <p><%= product.brand %></p>
-        <p><%= 'RATING' %></p>
-    </div>
-    <div class="info-bottom-right">
-        <p><%= product.weight %> kg</p>
-        <p><%= "SOMETHING" %></p>
-    </div>
+</div>
+<div class="card-content">
+  <div class="card-header">
+    <p class="card-title"><%= product.brand %></p>
+    <p class="card-lot"><em><%= product.weight %> kg</em></p>
+  </div>
+  <div class="card-header">
+    <p class="card-title">RATING</p>
+    <p class="card-lot">SOMETHING</p>
   </div>
 </div>

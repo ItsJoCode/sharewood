@@ -3,6 +3,7 @@
   <head>
     <title>Sharewood</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -15,7 +16,7 @@
 
   <body>
   <%= render "shared/navbar" %>
-  <div class="main-container">
+  <div class="main-container <%= 'forest-background' if current_page?('/creators') %>">
     <div class="container">
       <%= yield %>
     </div>

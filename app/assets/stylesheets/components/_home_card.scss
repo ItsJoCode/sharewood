@@ -20,9 +20,19 @@
   }
 }
 
+.card-pellet-style {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
 .card-image {
   position: relative;
   padding-top: 75%;
+  margin-bottom: 20px;
 
   img {
   position: absolute;
@@ -32,10 +42,18 @@
   height: 100%;
   object-fit: cover;
   }
+
+  .card-eco-score {
+    position: absolute;
+    display: flex;
+    color: #7bf1a8;
+    top: 10px;
+    left: 12px;
+  }
 }
 
 .card-content {
-  padding: 20px;
+  padding: 0 20px;
 }
 
 .card-header {
@@ -57,9 +75,15 @@
   line-height: 1.5;
 }
 
+.card-capacity_date {
+  display: flex;
+  justify-content: space-between;
+}
+
 .card-footer {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .card-price {
