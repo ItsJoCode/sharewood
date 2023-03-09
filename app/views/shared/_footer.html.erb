@@ -10,18 +10,18 @@
         <div class="col-xs-6 col-md-3">
           <h6>Categories</h6>
           <ul class="footer-links">
-            <li><a href="http://Sharewood.eu/category/cgv/">Conditions générales de vente</a></li>
-            <li><a href="http://Sharewood.eu/category/dataperso/">Vos informations personnelles</a></li>
-            <li><a href="http://Sharewood.eu/category/cookies/">Cookies</a></li>
+            <li><%= link_to "Conditions générales de vente", cgv_path %></li>
+            <li><%= link_to "Vos informations personnelles", informations_personnelles_path %></li>
+            <li><%= link_to "Cookies", cookies_policy_path %></li>
           </ul>
         </div>
 
         <div class="col-xs-6 col-md-3">
           <h6>Quick Links</h6>
           <ul class="footer-links">
-            <li><a href="http://Sharewood.eu/aboutpellets/">A propos des Pellets</a></li>
+            <li><%= link_to "A propos des Pellets", a_propos_des_pellets_path %></li>
             <li><%= link_to "Notre équipe", creators_path %></li>
-            <li><a href="http://Sharewood.eu/contact/">Contact Us</a></li>
+            <li><a href="mailto:privacy@sharewood.com">Contact Us</a></li>
           </ul>
         </div>
       </div>
@@ -31,7 +31,7 @@
       <div class="row">
         <div class="col-md-8 col-sm-6 col-xs-12">
           <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by
-        <a href="#">Sharewood</a>.
+        <a href="localhost:3000">Sharewood</a>.
           </p>
         </div>
 
