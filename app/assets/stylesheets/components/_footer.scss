@@ -1,6 +1,5 @@
 $footer-height: 260px;
 
-
 .site-footer
 {
   margin-top: auto;
@@ -35,8 +34,9 @@ $footer-height: 260px;
 }
 .site-footer a:hover
 {
-  color:#23211F;
+  color:white;
   text-decoration:none;
+  transform: scale(1.05);
 }
 .footer-links
 {
@@ -49,8 +49,9 @@ $footer-height: 260px;
 }
 .footer-links a
 {
-  color:#FFFFFF
+  color:#FFFFFF;
 }
+
 .footer-links a:active,.footer-links a:focus,.footer-links a:hover
 {
   color:#23211F;
