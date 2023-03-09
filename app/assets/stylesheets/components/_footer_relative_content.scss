@@ -1,0 +1,43 @@
+/* Sélectionne tous les éléments de texte à l'intérieur de la classe "footer_relative_content" */
+.footer_relative_content p {
+  font-family: Arial, sans-serif; /* Utilise la police Arial ou une police sans-serif si Arial n'est pas disponible */
+  font-size: 1.2rem; /* Définit la taille de police à 1,2 fois la taille par défaut */
+  line-height: 1.5; /* Définit la hauteur de ligne à 1,5 fois la taille de police */
+  color: #333; /* Définit la couleur de texte en gris foncé */
+  margin-bottom: 1.5rem; /* Ajoute une marge inférieure de 1,5 fois la taille de police pour chaque paragraphe */
+}
+
+/* Ajoute une bordure inférieure pour chaque en-tête de section */
+.footer_relative_content h2 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem; /* Ajoute une marge inférieure plus petite pour l'en-tête */
+}
+
+/* Modifie la couleur de texte et la police pour les listes à puces */
+.footer_relative_content ul, .footer_relative_content ol {
+  font-family: Arial, sans-serif;
+  color: #555; /* Définit la couleur de texte en gris clair */
+  margin-bottom: 1.5rem;
+}
+
+/* Modifie l'apparence des puces pour les listes à puces */
+.footer_relative_content ul li, .footer_relative_content ol li {
+  list-style-type: disc;
+  margin-left: 1rem; /* Ajoute une marge à gauche pour les puces */
+}
+
+/* Modifie l'apparence des numéros pour les listes numérotées */
+.footer_relative_content ol {
+  list-style-type: decimal;
+}
+
+/* Ajoute un peu d'espace blanc avant et après les en-têtes de section */
+.footer_relative_content h2 {
+  margin-top: 2rem;
+}
+
+/* Applique un style particulier au texte en gras */
+.footer_relative_content strong {
+  font-weight: bold;
+  color: #333;
+}

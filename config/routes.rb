@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "sales#index"
   get '/home', to: 'pages#home'
+  get '/a-propos-des-pellets', to: 'pages#propos_pellet'
+  get '/cgv', to: 'pages#cgv'
+  get '/informations_personnelles', to: 'pages#informations_personnelles'
+  get '/cookies_policy', to: 'pages#cookies_policy'
 
   namespace :owner do
     resources :products, only: %i[index show new create] do

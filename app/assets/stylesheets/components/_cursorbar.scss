@@ -1,0 +1,103 @@
+.select-button {
+  position: absolute;
+  left: 290px;
+  bottom: -395px;
+  width: 300px;
+  height: 150px;
+  padding: 1px;
+  // border-radius: 4px;
+  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .range-slider {
+    position: relative;
+    margin: 10px 0;
+  }
+
+  .range-slider input[type="range"] {
+    -webkit-appearance: none;
+    height: 10px;
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+  }
+
+  .range-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    cursor: pointer;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+  }
+
+  .range-slider input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    cursor: pointer;
+    -moz-appearance: none;
+    appearance: none;
+    margin-top: -5px;
+  }
+
+  .range-slider input[type="range"]:hover,
+  .range-slider input[type="range"]:focus {
+    opacity: 1;
+  }
+
+  .range-slider input[type="range"]:hover::-webkit-slider-thumb,
+  .range-slider input[type="range"]:focus::-webkit-slider-thumb {
+    background-color: #3e8e41;
+  }
+
+  .range-slider input[type="range"]:hover::-moz-range-thumb,
+  .range-slider input[type="range"]:focus::-moz-range-thumb {
+    background-color: #3e8e41;
+  }
+
+  .range-slider output {
+    display: block;
+    position: absolute;
+    top: -30px;
+    left: 0;
+    width: 40px;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #4CAF50;
+    pointer-events: none;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+  }
+
+  .total {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a {
+    color: white;
+    background: #4CAF50;
+    border-radius: 30px;
+
+    &:hover {
+      color: white;
+      background: #3e8e41;
+    }
+  }
+}

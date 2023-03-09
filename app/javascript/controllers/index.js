@@ -13,5 +13,8 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import RangeSliderController from "./range_slider_controller"
+application.register("range-slider", RangeSliderController)
+
 import SearchSalesController from "./search_sales_controller"
 application.register("search-sales", SearchSalesController)
