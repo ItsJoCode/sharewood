@@ -20,6 +20,15 @@
   }
 }
 
+.card-pellet-style {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
 .card-image {
   position: relative;
   padding-top: 75%;

@@ -1,5 +1,5 @@
 <div class="card-image">
-  <%= image_tag "test" %>
+  <%= image_tag "pellet_card_product" %>
   <div class="card-eco-score">
     <%= '<i class="fa-solid fa-leaf"></i>'.html_safe * product.eco_score %>
     <%= '<i class="fa-solid fa-leaf" style="color: #e9f5db"></i>'.html_safe * (3 - product.eco_score) %>
@@ -7,7 +7,7 @@
 </div>
 <div class="card-content">
   <div class="card-header">
-    <p class="card-title"><%= product.name %></p>
+    <p class="card-title"><%= product.brand %></p>
     <p class="card-lot"><em><%= product.weight %> kg</em></p>
   </div>
   <div class="card-header">
