@@ -1,5 +1,5 @@
 <div class="card-bg">
-  <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= image_path "pellet_card_product" %>')"></div>
+  <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= image_path "pellet" %>')"></div>
   <div class="card-wrapper" id="card-wrapper">
     <div class="card-pellet-style">
       <%= render 'products/card_product', product: @sale.product %>
@@ -8,14 +8,20 @@
     </div>
     <%= render "products/card_pool", product: @sale.product %>
   </div>
-   <div class="select-button">
+   <div class="select-button" data-controller="range-slider"
+        data-range-slider-price-value = "<%= @sale.price_reduction %>" data-range-slider-weight-value = "<%= @sale.product.weight %> ">
       <label for="quantity">Select Quantity:</label>
       <br>
       <br>
-      <div class="range-slider" data-controller="range-slider">
-        <input type="range" id="quantity" name="quantity" min="1" max="10" value="1" data-range-slider-target="input"
+      <div class="range-slider">
+        <input type="range" id="quantity" name="quantity" min="2" max="50" value="2" data-range-slider-target="input"
          data-action="range-slider#onInput">
         <output for="quantity" data-range-slider-target="output"></output >
       </div>
+      <div class="total">
+        <p>Prix total: <span data-range-slider-target="price"></span> €</p>
+        <p>Poids total: <span data-range-slider-target="weight"></span> Kg</p>
+      </div>
+      <%= link_to "Submit", "#", class: "btn btn-lg w-100" %>
     </div>
 </div>
