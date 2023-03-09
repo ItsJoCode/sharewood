@@ -24,4 +24,16 @@
       </div>
       <%= link_to "Submit", "#", class: "btn btn-lg w-100" %>
     </div>
+    <div class="countdown" data-controller="countdown" data-countdown-endtime-value="<%= @sale.end_date %>">
+      <div class="mx-4"><h1><i class="fa-solid fa-clock"></i> Fin de la vente dans</h1></div>
+      <div id="timer">
+        <span data-countdown-target="days"></span>
+        <span>J:</span>
+        <span data-countdown-target="hours"></span>
+        <span>h:</span>
+        <span data-countdown-target="minutes"></span>
+        <span>min:</span>
+        <span data-countdown-target="seconds"></span>
+      </div>
+    </div>
 </div>
