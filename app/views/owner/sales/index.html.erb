@@ -1,10 +1,43 @@
-<h1>My Sales</h1>
+<h1>Mes ventes :</h1>
+<br>
 
-<ul>
-<% @sales.each do |sale| %>
-  <li><%= sale.address %></li>
-<% end %>
-</ul>
+<div class="sales-state">
+  <div class="sales-encours">
+    <h2>En cours</h2>
+    <ul>
+      <% @sales.each do |sale| %>
+        <li><%= render "shared/product_card" %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="sales-validées">
+    <h2>Validées</h2>
+    <ul>
+      <% @sales.each do |sale| %>
+        <li><%= render "shared/product_card" %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="sales-validées">
+    <h2>Livrées</h2>
+    <ul>
+      <% @sales.each do |sale| %>
+        <li><%= render "shared/product_card" %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="sales-validées">
+    <h2>Annulées</h2>
+    <ul>
+      <% @sales.each do |sale| %>
+        <li><%= render "shared/product_card" %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
 <% unless @sales.empty? %>
   <div class="geo-map"
     data-controller="map"
