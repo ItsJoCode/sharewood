@@ -19,8 +19,8 @@
     </ul>
   </div>
 
-  <div class="sales-validées">
     <h2>Livrées</h2>
+  <div class="sales-livrées">
     <ul>
       <% @sales.each do |sale| %>
         <li><%= render "shared/product_card" %></li>
@@ -28,8 +28,8 @@
     </ul>
   </div>
 
-  <div class="sales-validées">
     <h2>Annulées</h2>
+  <div class="sales-annulées">
     <ul>
       <% @sales.each do |sale| %>
         <li><%= render "shared/product_card" %></li>
