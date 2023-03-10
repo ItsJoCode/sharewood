@@ -32,6 +32,7 @@ class User < ApplicationRecord
   def owner?
     self.role == 'owner'
   end
+
   def near_markers
     markers = self.near_sales.geocoded.map do |sale|
       {

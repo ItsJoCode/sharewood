@@ -1,4 +1,5 @@
 <div class="card-produit-description">
   <h2><%= product.name %></h2>
   <p class="description"><%= product.description %></p>
+  <%= link_to "Détails du produit", product_path(product), class: "btn btn-outline-secondary w-50", style: "border-radius: 30px" %>
 </div>

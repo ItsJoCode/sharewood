@@ -6,7 +6,7 @@
       <br>
       <%= render 'card_sale_footer', sale: @sale %>
     </div>
-    <%= render "products/card_produit_description", product: @sale.product %>
+    <%= render "products/card_product_description", product: @sale.product %>
   </div>
    <div class="select-button" data-controller="range-slider"
         data-range-slider-price-value = "<%= @sale.price_reduction %>" data-range-slider-weight-value = "<%= @sale.product.weight %> ">
@@ -22,6 +22,18 @@
         <p>Prix total: <span data-range-slider-target="price"></span> €</p>
         <p>Poids total: <span data-range-slider-target="weight"></span> Kg</p>
       </div>
-      <%= link_to "Submit", "#", class: "btn btn-lg w-100" %>
+      <%= link_to "Commander", customer_orders_path, class: "btn btn-lg w-100" %>
+    </div>
+    <div class="countdown" data-controller="countdown" data-countdown-endtime-value="<%= @sale.end_date %>">
+      <div class="mx-4"><h1><i class="fa-solid fa-clock"></i> Fin de la vente dans</h1></div>
+      <div id="timer">
+        <span data-countdown-target="days"></span>
+        <span>J:</span>
+        <span data-countdown-target="hours"></span>
+        <span>h:</span>
+        <span data-countdown-target="minutes"></span>
+        <span>min:</span>
+        <span data-countdown-target="seconds"></span>
+      </div>
     </div>
 </div>
