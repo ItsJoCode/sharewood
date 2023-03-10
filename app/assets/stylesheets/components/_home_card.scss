@@ -2,6 +2,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
+
+  a {
+    text-decoration: none;
+    color: black
+  }
 }
 
 .card-pellet {
@@ -66,6 +71,12 @@
   margin-top: 0;
 }
 
+.card-rate {
+  .fa-solid {
+    color: gold;
+  }
+}
+
 .card-lot {
   margin-top: 0;
 }
@@ -125,7 +136,7 @@
 
 .btn-fixed {
   position: sticky;
-  bottom: 300px;
+  bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 30px;
