@@ -168,7 +168,7 @@ puts "Creating some creators ..."
 
 creator = Creator.new(
   name: antho.first_name,
-  description: "Après avoir travaillé pendant plusieurs années en tant que commercial et entrepreneur, j'ai décidé de me lancer dans le développement web en suivant la formation du Wagon.",
+  description: "After working for several years as a salesperson and entrepreneur, I decided to venture into web development by taking the course offered by Le Wagon.",
   photo_url: "https://ca.slack-edge.com/T02NE0241-U04K2D8070B-3c6ce5975412-512"
 )
 creator.save!
@@ -184,7 +184,7 @@ puts "créateur : #{jo.first_name} ok !!!"
 
 creator = Creator.new(
   name: ro.first_name,
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.",
+  description: "Experienced professional in digital and audiovisual project management and video production. I decided to embark on learning web development in order to be able to supervise teams in tech companies.",
   photo_url: "https://ca.slack-edge.com/T02NE0241-U04K4VAV97E-726d7ba7c785-512"
 )
 creator.save!
