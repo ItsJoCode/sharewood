@@ -1,8 +1,8 @@
-User.destroy_all
-Product.destroy_all
-Sale.destroy_all
 Creator.destroy_all
-# Order.destroy_all
+Order.destroy_all
+Sale.destroy_all
+Product.destroy_all
+User.destroy_all
 # Review.destroy_all
 
 ################################
@@ -160,6 +160,21 @@ puts "sale 4 : #{pellematic.name} pour #{flo.first_name} !!!"
 puts "et aucune sale pour #{ro.first_name} !!!"
 
 puts '....... Sales finished!'
+
+################################
+#---------- Orders ----------#
+################################
+puts "Creating some orders ..."
+
+order = Order.new(
+  capacity: 0,
+  sale_id: sale.id,
+  user_id: ro.id
+)
+order.save!
+puts "mais création d'une order pour #{ro.first_name} !!!"
+
+puts '....... Orders finished!'
 
 ################################
 #---------- Creators ----------#
