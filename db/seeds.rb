@@ -199,5 +199,3 @@ creator.save!
 puts "créateur : #{flo.first_name} ok !!!"
 
 puts '....... Creators finished!'
-
-#test#
