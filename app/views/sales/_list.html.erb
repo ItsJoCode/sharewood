@@ -1,5 +1,14 @@
-<div class="sale-card" data-search-sales-target='list'>
-  <div class="cards">
+<div id="list" class="sale-card" data-search-sales-target='list'>
+
+<div class="fullmap hiddenmap" data-search-sales-target='fullmap'>
+    <div id="map" class="geo-map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+
+  <div class="cards" data-search-sales-target='cards'>
     <% sales.each do |sale| %>
       <div class="card-pellet">
         <%= render 'products/card_product', product: sale.product %>
@@ -8,4 +17,13 @@
       </div>
     <% end %>
   </div>
+
+  <%= link_to "voir la carte", "#",
+      class: "btn btn-dark mx-auto btn-fixed",
+      data: {
+              action: "search-sales#display",
+              "search-sales-target": "changebtn"
+            }
+  %>
+
 </div>
