@@ -1,6 +1,6 @@
 <div class="main-sale-card mt-4" data-controller="search-sales">
   <div class="search-container mb-4">
-    <%= form_with url: sales_path, method: :get, html: {class: "d-flex", data:{search_sales_target: "form"}} do %>
+    <%= form_with url: customer_sales_path, method: :get, html: {class: "d-flex", data:{search_sales_target: "form"}} do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",

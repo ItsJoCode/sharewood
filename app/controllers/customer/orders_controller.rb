@@ -12,7 +12,7 @@ class Customer::OrdersController < ApplicationController
     @sale = Sale.find(params[:sale_id])
     @order.sale = @sale
     if @order.save
-      redirect_to customer_orderr(@sale)
+      redirect_to customer_orders_path
     else
       render '/sale/show', status: :unprocessable_entity
     end
@@ -21,6 +21,6 @@ class Customer::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:capacity, :total_price, :notify)
+    params.require(:order).permit(:capacity)
   end
 end

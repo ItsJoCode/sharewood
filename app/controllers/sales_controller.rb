@@ -3,9 +3,9 @@ class SalesController < ApplicationController
 
   def index
     if current_user&.customer?
-      redirect_to customer_sales_path
+      redirect_to customer_sales_path and return
     elsif current_user&.owner?
-      redirect_to owner_sales_path
+      redirect_to owner_sales_path and return
     end
     if params[:query].present?
       @sales = Sale.global_search(params[:query])
