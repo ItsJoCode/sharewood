@@ -19,4 +19,14 @@ class Sale < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def self.define_markers
+    self.geocoded.map do |sale|
+      {
+        lat: sale.latitude,
+        lng: sale.longitude,
+        marker_html: '<i class="fa-solid fa-location-dot"></i>'
+      }
+    end
+  end
 end

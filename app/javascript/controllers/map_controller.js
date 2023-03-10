@@ -7,6 +7,13 @@ import { Controller } from "@hotwired/stimulus"
     }
 
   connect() {
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.showPosition, this.showError)
+    } else {
+      alert('La géolocalisation n\'est pas prise en charge par ce navigateur.')
+    }
+
     mapboxgl.accessToken = this.apiKeyValue
     this.map = new mapboxgl.Map({
       container: this.element,
@@ -14,6 +21,28 @@ import { Controller } from "@hotwired/stimulus"
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+
+  }
+
+  showPosition(position) {
+    console.log(`Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`)
+  }
+
+  showError(error) {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        alert('L\'utilisateur a refusé la demande de géolocalisation.')
+        break
+      case error.POSITION_UNAVAILABLE:
+        alert('Les informations de position sont indisponibles.')
+        break
+      case error.TIMEOUT:
+        alert('La demande de géolocalisation a expiré.')
+        break
+      default:
+        alert('Une erreur inconnue est survenue lors de la demande de géolocalisation.')
+        break
+    }
   }
 
   #addMarkersToMap() {

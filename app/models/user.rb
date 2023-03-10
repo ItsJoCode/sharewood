@@ -25,23 +25,8 @@ class User < ApplicationRecord
     Sale.where(product_id: self.products).near(self, 30)
   end
 
-  def customer?
-    self.role == 'customer'
-  end
-
-  def owner?
-    self.role == 'owner'
-  end
-
-  def near_markers
-    markers = self.near_sales.geocoded.map do |sale|
-      {
-        lat: sale.latitude,
-        lng: sale.longitude,
-        marker_html: '<i class="fa-solid fa-location-dot"></i>'
-      }
-    end
-    # current_user marker
+  def near_markers_for(my_sales)
+    markers = my_sales.define_markers
     markers.unshift(
       {
         lat: self.latitude,
