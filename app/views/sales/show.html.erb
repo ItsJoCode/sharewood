@@ -6,7 +6,7 @@
       <br>
       <%= render 'card_sale_footer', sale: @sale %>
     </div>
-    <%= render "products/card_produit_description", product: @sale.product %>
+    <%= render "products/card_product_description", product: @sale.product %>
   </div>
    <div class="select-button" data-controller="range-slider"
         data-range-slider-price-value = "<%= @sale.price_reduction %>" data-range-slider-weight-value = "<%= @sale.product.weight %> ">
