@@ -2,6 +2,11 @@ class SalesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+    if current_user&.customer?
+      redirect_to customer_sales_path
+    elsif current_user&.owner?
+      redirect_to owner_sales_path
+    end
     if params[:query].present?
       @sales = Sale.global_search(params[:query])
     else

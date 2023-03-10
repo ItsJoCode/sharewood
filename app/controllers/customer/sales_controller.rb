@@ -6,6 +6,7 @@ class Customer::SalesController < ApplicationController
   end
 
   def show
+    @order = Order.new
   end
 
   def set_sale

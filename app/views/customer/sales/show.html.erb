@@ -1,2 +1,39 @@
-<h1>Customer::Sales#show</h1>
-<p>Find me in app/views/customer/sales/show.html.erb</p>
+<div class="card-bg">
+  <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= image_path "pellet.png" %>')"></div>
+  <div class="card-wrapper" id="card-wrapper">
+    <div class="card-pellet-style">
+      <%= render 'products/card_product', product: @sale.product %>
+      <br>
+      <%= render 'sales/card_sale_footer', sale: @sale %>
+    </div>
+    <%= render "products/card_product_description", product: @sale.product %>
+  </div>
+   <div class="select-button" data-controller="range-slider"
+        data-range-slider-price-value = "<%= @sale.price_reduction %>" data-range-slider-weight-value = "<%= @sale.product.weight %> ">
+      <label for="quantity">Sélectionnez la Quantité:</label>
+      <br>
+      <br>
+      <div class="range-slider">
+        <input type="range" id="quantity" name="quantity" min="2" max="50" value="2" data-range-slider-target="input"
+         data-action="range-slider#onInput">
+        <output for="quantity" data-range-slider-target="output"></output >
+      </div>
+      <div class="total">
+        <p>Prix total: <span data-range-slider-target="price"></span> €</p>
+        <p>Poids total: <span data-range-slider-target="weight"></span> Kg</p>
+      </div>
+      <%= link_to "Commander", customer_orders_path, class: "btn btn-lg w-100" %>
+    </div>
+    <div class="countdown" data-controller="countdown" data-countdown-endtime-value="<%= @sale.end_date %>">
+      <div class="mx-4"><h1><i class="fa-solid fa-clock"></i> Fin de la vente dans</h1></div>
+      <div id="timer">
+        <span data-countdown-target="days"></span>
+        <span>J:</span>
+        <span data-countdown-target="hours"></span>
+        <span>h:</span>
+        <span data-countdown-target="minutes"></span>
+        <span>min:</span>
+        <span data-countdown-target="seconds"></span>
+      </div>
+    </div>
+</div>

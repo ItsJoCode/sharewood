@@ -25,13 +25,13 @@ class User < ApplicationRecord
     Sale.where(product_id: self.products).near(self, 30)
   end
 
-  def customer?
-    self.role == 'customer'
-  end
+  # def customer?
+  #   self.role == 'customer'
+  # end
 
-  def owner?
-    self.role == 'owner'
-  end
+  # def owner?
+  #   self.role == 'owner'
+  # end
 
   def near_markers
     markers = self.near_sales.geocoded.map do |sale|
