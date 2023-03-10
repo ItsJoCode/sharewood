@@ -5,8 +5,8 @@ class Customer::SalesController < ApplicationController
     # @sales = Sale.where(product_id: current_user.products)
     @sales = current_user.near_sales
     @sales = @sales.global_search(params[:query]) if params[:query].present?
-    @markers = current_user.near_markers
-    #@markers = current_user.near_markers_for(@sales)
+    # @markers = current_user.near_markers
+    @markers = current_user.near_markers_for(@sales)
 
     # @sales = Sale.all
     respond_to do |format|
