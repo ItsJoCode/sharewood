@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["form", "input", "list", "fullmap", "cards", "changebtn"]
 
   connect() {
-    this.changebtnTarget.innerHTML = 'voir la carte <i class="fa-regular fa-map"></i>'
+    this.changebtnTarget.innerHTML = 'Voir la carte <i class="fa-regular fa-map"></i>'
   }
 
   update() {
@@ -29,9 +29,9 @@ export default class extends Controller {
     this.fullmapTarget.classList.toggle("hiddenmap")
     const hmap = this.fullmapTarget.classList.contains("hiddenmap")
     if (!hmap) {
-      event.target.innerHTML = 'voir les ventes <i class="fa-solid fa-list"></i>'
+      event.target.innerHTML = 'Voir les ventes <i class="fa-solid fa-list"></i>'
     } else {
-      event.target.innerHTML = 'voir la carte <i class="fa-regular fa-map"></i>'
+      event.target.innerHTML = 'Voir la carte <i class="fa-regular fa-map"></i>'
     }
   }
 
