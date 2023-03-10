@@ -18,6 +18,9 @@ export default class extends Controller {
         if (!hmap) {
           this.cardsTarget.classList.add("d-none")
           this.fullmapTarget.classList.remove("hiddenmap")
+          this.changebtnTarget.innerHTML = 'Voir les ventes <i class="fa-solid fa-list"></i>'
+        } else {
+          this.changebtnTarget.innerHTML = 'Voir la carte <i class="fa-regular fa-map"></i>'
         }
       })
 
