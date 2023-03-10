@@ -6,4 +6,21 @@ class Customer::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
   end
+
+  def create
+    @order = Order.new(order_params)
+    @sale = Sale.find(params[:sale_id])
+    @order.sale = @sale
+    if @order.save
+      redirect_to customer_orders_path
+    else
+      render '/sale/show', status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:capacity)
+  end
 end

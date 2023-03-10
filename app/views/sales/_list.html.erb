@@ -10,13 +10,33 @@
 
   <div class="cards" data-search-sales-target='cards'>
     <% sales.each do |sale| %>
-    <%= link_to sale_path(sale) do %>
-      <div class="card-pellet">
-        <%= render 'products/card_product', product: sale.product %>
-        <br>
-        <%= render 'card_sale_footer', sale: sale %>
-      </div>
-    <% end %>
+      <% if user_signed_in? %>
+        <% if current_user.customer? %>
+          <%= link_to customer_sale_path(sale) do %>
+            <div class="card-pellet">
+              <%= render 'products/card_product', product: sale.product %>
+              <br>
+              <%= render 'sales/card_sale_footer', sale: sale %>
+            </div>
+          <% end %>
+        <% elsif current_user.owner? %>
+          <%= link_to owner_sale_path(sale) do %>
+            <div class="card-pellet">
+              <%= render 'products/card_product', product: sale.product %>
+              <br>
+              <%= render 'sales/card_sale_footer', sale: sale %>
+            </div>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to sale_path(sale) do %>
+          <div class="card-pellet">
+            <%= render 'products/card_product', product: sale.product %>
+            <br>
+            <%= render 'sales/card_sale_footer', sale: sale %>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 
