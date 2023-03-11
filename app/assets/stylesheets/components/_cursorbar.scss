@@ -68,11 +68,11 @@
     background-color: #3e8e41;
   }
 
-  .range-slider output {
+  .range-slider output  {
     display: block;
     position: absolute;
-    top: -30px;
-    left: 0;
+    top: 30px;
+    left: -50px;
     width: 40px;
     height: 30px;
     font-size: 14px;
@@ -90,7 +90,7 @@
     justify-content: space-between;
   }
 
-  a {
+  .range-slider input[type="submit"] {
     color: white;
     background: #4CAF50;
     border-radius: 30px;

@@ -11,10 +11,11 @@ class Customer::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @sale = Sale.find(params[:sale_id])
     @order.sale = @sale
+    @order.user = current_user
     if @order.save
       redirect_to customer_orders_path
     else
-      render '/sale/show', status: :unprocessable_entity
+      render 'customer/sales/show', status: :unprocessable_entity
     end
   end
 
