@@ -26,9 +26,7 @@
   <body>
   <%= render "shared/navbar" %>
   <div class="main-container <%= 'forest-background' if current_page?('/creators') %>">
-    <div class="container">
-      <%= yield %>
-    </div>
+    <%= yield %>
   </div>
   <%= render "shared/flashes" %>
   <%= render "shared/footer" %>
