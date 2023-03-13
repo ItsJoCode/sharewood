@@ -1,2 +1,19 @@
-<h1>Customer::Sales#index</h1>
-<p>Find me in app/views/customer/sales/index.html.erb</p>
+<div class="main-sale-card mt-4" data-controller="search-sales">
+  <div class="search-container mb-4">
+    <%= form_with url: customer_sales_path, method: :get, html: {class: "d-flex", data:{search_sales_target: "form"}} do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Rechercher...",
+        data: {
+                search_sales_target: "input",
+                action: "keyup->search-sales#update"
+              }
+      %>
+      <%= button_tag do %>
+        <i class="fa fa-search"></i>
+      <% end %>
+    <% end %>
+  </div>
+  <%= render 'sales/list', sales: @sales %>
+</div>
