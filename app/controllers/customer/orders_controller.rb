@@ -5,6 +5,7 @@ class Customer::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @review = Review.new
   end
 
   def create
