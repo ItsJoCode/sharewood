@@ -1,47 +1,31 @@
 <h1>Mes commandes :</h1>
 
-<% console %>
 <div class="orders-state">
   <div class="orders-encours">
     <h2>En cours</h2>
-    <ul>
+    <div class="cards">
       <% @orders.each do |order| %>
-        <li><%= render "shared/product_card" %></li>
+        <div class="card-pellet-style">
+          <%= render 'products/card_product', product: order.sale.product %>
+          <br>
+          <%= render 'sales/card_sale_footer', sale: order.sale %>
+        </div>
       <% end %>
-    </ul>
+    </div>
   </div>
+
+  <h2>Validées</h2>
   <div class="orders-validées">
-    <h2>Validées</h2>
-    <ul>
-      <% @orders.each do |order| %>
-        <li><%= render "shared/product_card", order: order %></li>
-      <% end %>
-    </ul>
+    <%= render "shared/product_card" %>
   </div>
 
-    <h2>Livrées</h2>
+  <h2>Livrées</h2>
   <div class="orders-livrées">
-    <ul>
-      <% @orders.each do |order| %>
-        <li><%= render "shared/product_card" %></li>
-      <% end %>
-    </ul>
+    <%= render "shared/product_card" %>
   </div>
 
-    <h2>Annulées</h2>
+  <h2>Annulées</h2>
   <div class="orders-annulées">
-    <ul>
-      <% @orders.each do |order| %>
-        <li><%= render "shared/product_card" %></li>
-      <% end %>
-    </ul>
+    <%= render "shared/product_card" %>
   </div>
 </div>
-
-<% unless @orders.empty? %>
-  <div class="geo-map"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-<% end %>

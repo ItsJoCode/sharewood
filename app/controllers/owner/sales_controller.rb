@@ -3,7 +3,7 @@ class Owner::SalesController < ApplicationController
 
   def index
     @sales = current_user.near_sales
-    @markers = current_user.near_markers
+    @markers = current_user.near_markers_for(@sales)
   end
 
   def show

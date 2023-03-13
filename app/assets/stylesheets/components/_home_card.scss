@@ -2,6 +2,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
+
+  a {
+    text-decoration: none;
+    color: black
+  }
 }
 
 .card-pellet {
@@ -66,6 +71,12 @@
   margin-top: 0;
 }
 
+.card-rate {
+  .fa-solid {
+    color: gold;
+  }
+}
+
 .card-lot {
   margin-top: 0;
 }
@@ -104,4 +115,29 @@
 .progress-bar {
   height: 100%;
   background-color: #4CAF50;
+}
+
+.sale-card {
+  text-align: center;
+
+  .geo-map {
+    width: 100%;
+    height: 450px;
+    margin: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+}
+
+.hiddenmap {
+  visibility: hidden;
+  height: 0px;
+}
+
+.btn-fixed {
+  position: sticky;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 30px;
 }
