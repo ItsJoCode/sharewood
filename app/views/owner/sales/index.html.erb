@@ -2,16 +2,16 @@
 <br>
 
 <div class="sales-state">
-  <div class="sales-encours">
     <h2>En cours</h2>
+  <div class="sales-encours">
     <ul>
       <% @sales.each do |sale| %>
         <li><%= render "shared/product_card" %></li>
       <% end %>
     </ul>
   </div>
-  <div class="sales-validées">
     <h2>Validées</h2>
+  <div class="sales-validées">
     <ul>
       <% @sales.each do |sale| %>
         <li><%= render "shared/product_card" %></li>
