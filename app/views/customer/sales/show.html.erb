@@ -22,6 +22,17 @@
         <%= f.button :submit, class: 'btn btn-lg w-100' %>
       <% end %>
     </div>
+
+    <div class="order-draw" data-range-slider-target="draw">
+      <% full = 100 %>
+      <% rest = 18 %>
+      <% (full - rest).times do %>
+        <div><%= content_tag :i, '', class: 'fa-regular fa-circle' %></div>
+      <% end %>
+      <% rest.times do %>
+        <div><%= content_tag :i, '', class: 'fa-regular fa-face-grin-hearts' %></div>
+      <% end %>
+    </div>
   </div>
   <div class="countdown" data-controller="countdown" data-countdown-endtime-value="<%= @sale.end_date %>">
     <div class="mx-4"><h1><i class="fa-solid fa-clock"></i> Fin de la vente dans</h1></div>
