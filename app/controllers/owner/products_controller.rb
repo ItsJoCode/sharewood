@@ -6,6 +6,7 @@ class Owner::ProductsController < ApplicationController
   end
 
   def show
+    @reviews = Review.joins(order: { sale: :product }).where(products: { id: @product.id })
   end
 
   def new
