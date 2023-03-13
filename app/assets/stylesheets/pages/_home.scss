@@ -2,11 +2,11 @@
 
 body {
   // padding-bottom: 20px;
-  min-height: 130vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.main-container {
-  flex-grow: 1;
+.main-sale-card {
+  height: 90vh;
 }
