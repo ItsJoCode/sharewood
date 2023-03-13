@@ -20,10 +20,6 @@ class Sale < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
-  def progress_bar(order)
-    sale_capacity - order.capacity
-  end
-
   def self.define_markers
     self.geocoded.map do |sale|
       {

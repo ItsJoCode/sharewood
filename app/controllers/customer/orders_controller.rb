@@ -12,8 +12,8 @@ class Customer::OrdersController < ApplicationController
     @sale = Sale.find(params[:sale_id])
     @order.sale = @sale
     @order.user = current_user
-    if @order.save
-      @sale.update(current_capacity: @sale.progress_bar(@order))
+    if @order.save!
+      @sale.update(current_capacity: @sale.current_capacity + @order.capacity)
       redirect_to customer_orders_path
     else
       render 'customer/sales/show', status: :unprocessable_entity

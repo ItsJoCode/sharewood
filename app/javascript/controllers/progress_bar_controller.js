@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="progress-bar"
 export default class extends Controller {
   static targets = ["bar"];
-  static values = { current: Number, capacity: Number }
+  static values = { currentcapacity: Number, salecapacity: Number }
 
   // connect() {
   //   console.log(this.currentValue)
@@ -34,8 +34,8 @@ export default class extends Controller {
   }
 
   updateProgressBar() {
-    const value = this.currentValue// get the value from the data-value attribute
-    const maxValue = this.capacityValue // get the maximum value from the data-max-value attribute
+    const value = this.currentcapacityValue// get the value from the data-value attribute
+    const maxValue = this.salecapacityValue // get the maximum value from the data-max-value attribute
     const percentage = (value / maxValue) * 100 // calculate the percentage value
     this.barTarget.style.width = `${percentage}%` // set the width of the progress bar
   }
