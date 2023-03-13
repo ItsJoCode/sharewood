@@ -44,11 +44,17 @@ h1 {
     margin: 0;
   }
 
+  .orders-validées {
+    margin-left: -142px;
+  }
+
   .orders-livrées {
     opacity: 0.5;
+    margin-left: -142px;
   }
 
   .orders-annulées {
     opacity: 0.5;
+    margin-left: -142px;
   }
 }

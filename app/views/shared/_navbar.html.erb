@@ -15,7 +15,6 @@
           <li class="nav-item welcome-user">
             <%= link_to "Bienvenue <strong>#{current_user.first_name}</strong>".html_safe, sales_path, class: "nav-link" %>
           </li>
-          <li><%= link_to "Notre équipe", creators_path, class: "nav-link" %></li>
           <li class="nav-item dropdown">
             <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
