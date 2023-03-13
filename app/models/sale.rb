@@ -29,4 +29,9 @@ class Sale < ApplicationRecord
       }
     end
   end
+
+  def update_sale_status
+    rest_value = sale_capacity - current_capacity
+    confirmed! if rest_value.fdiv(sale_capacity) < 0.10 && end_date >= Time.now
+  end
 end

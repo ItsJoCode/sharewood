@@ -9,7 +9,9 @@ h1 {
 }
 
 .sales-state {
-  h2 {
+ margin-top: 30px;
+
+ h2 {
     border: solid;
     border-radius: 50px;
     width: 120px;
@@ -42,11 +44,22 @@ h1 {
     margin: 0;
   }
 
+
+  .sales-encours {
+    margin-left: -142px;
+  }
+
+  .sales-validées {
+    margin-left: -142px;
+  }
+
   .sales-livrées {
     opacity: 0.5;
+    margin-left: -142px;
   }
 
   .sales-annulées {
     opacity: 0.5;
+    margin-left: -142px;
   }
 }

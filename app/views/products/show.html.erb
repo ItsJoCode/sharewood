@@ -6,6 +6,16 @@
     </div>
     <%= render "card_product_description", product: @product %>
   </div>
+  <div class="Avis">
+    <% @reviews.each do |review| %>
+      <div class="review">
+        <p><%= review.rating %> stars</p>
+        <p><%= review.content %></p>
+        <p>Posted by <%= review.order.user.first_name %></p>
+      </div>
+    <% end %>
+  </div>
+
   <div class="current-sales">
     <h2>Ventes en cours</h2>
     <div class="cards">
@@ -17,4 +27,3 @@
       </div>
     <% end %>
   </div>
-</div>

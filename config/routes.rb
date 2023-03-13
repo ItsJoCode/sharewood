@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'reviews/index'
+  get 'reviews/show'
+  get 'reviews/create'
   devise_for :users
   root to: "sales#index"
   get '/home', to: 'pages#home'
@@ -18,12 +21,15 @@ Rails.application.routes.draw do
     resources :sales, only: %i[index show] do
       resources :orders, only: %i[create]
     end
-    resources :orders, only: %i[index show]
+    resources :orders, only: %i[index show] do
+      resources :reviews, only: %i[create]
+    end
   end
 
   resources :creators, only: %i[index show]
   resources :products, only: %i[show]
   resources :sales, only: %i[index show]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -3,7 +3,7 @@ $card-box-shadow: 0 0 15px rgba(0,0,0,0.2);
 $card-padding: 16px;
 
 .card-bg {
-  position: absolute;
+  position: relative;
   left: 0px;
   border: 0px;
   padding: 0px;
@@ -15,16 +15,15 @@ $card-padding: 16px;
 }
 
 .card-banner {
-  width: 100%;
+  width: 100% !important;
   height: 350px;
   background-position: center;
   background-size: cover;
 }
 
 .card-wrapper {
-  position: absolute;
-  top: 100px;
-  margin: 25.5px auto;
+  position: relative;
+  top: -80px;
   width: 100%;
   display: flex;
   align-items: center;

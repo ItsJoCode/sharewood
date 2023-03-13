@@ -5,8 +5,9 @@
   </div>
   <div class="card-footer">
     <div class="card-price"> <p><%= sale.price_reduction %> €</p></div>
-    <div class="card-progress">
-      <div class="progress-bar" style="width: 70%;"></div>
+    <div data-controller="progress-bar" data-progress-bar-currentcapacity-value="<%= sale.current_capacity %>"
+          data-progress-bar-salecapacity-value="<%= sale.sale_capacity %>" class="progress-container">
+      <div data-progress-bar-target="bar" class="progress-bar"></div>
     </div>
   </div>
 </div>

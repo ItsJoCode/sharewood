@@ -8,33 +8,35 @@
     </div>
     <%= render "products/card_product_description", product: @sale.product %>
   </div>
-  <div class="select-button" data-controller="range-slider"
-        data-range-slider-price-value = "<%= @sale.price_reduction %>" data-range-slider-weight-value = "<%= @sale.product.weight %> ">
-    <div class="range-slider">
-      <%= simple_form_for [:customer, @sale, @order] do |f| %>
-        <%= f.input :capacity, as: :range, id: "capacity", label: "Sélectionnez la Quantité:", input_html: { min: 2, max: 50, value: 2, data: { range_slider_target: 'input', action: 'range-slider#onInput'}}%>
-        <%# <%= f.input_field :capacity, class: "field", data: { range_slider_target: 'output' } %>
-        <output for="capacity" data-range-slider-target="output"></output >
-        <div class="total">
-          <p>Prix total: <span data-range-slider-target="price"></span> €</p>
-          <p>Poids total: <span data-range-slider-target="weight"></span> Kg</p>
-        </div>
-        <%= f.button :submit, class: 'btn btn-lg w-100' %>
-      <% end %>
-    </div>
+  <div class="counter-wrapper">
+    <div class="select-button" data-controller="range-slider"
+          data-range-slider-price-value = "<%= @sale.price_reduction %>" data-range-slider-weight-value = "<%= @sale.product.weight %> ">
+      <div class="range-slider">
+        <%= simple_form_for [:customer, @sale, @order] do |f| %>
+          <%= f.input :capacity, as: :range, id: "capacity", label: "Sélectionnez la Quantité:", input_html: { min: 2, max: 50, value: 2, data: { range_slider_target: 'input', action: 'range-slider#onInput'}}%>
+          <%# <%= f.input_field :capacity, class: "field", data: { range_slider_target: 'output' } %>
+          <output for="capacity" data-range-slider-target="output"></output >
+          <div class="total">
+            <p>Prix total: <span data-range-slider-target="price"></span> €</p>
+            <p>Poids total: <span data-range-slider-target="weight"></span> Kg</p>
+          </div>
+          <%= f.button :submit, class: 'btn btn-lg w-100' %>
+        <% end %>
+      </div>
 
-    <div class="order-draw" data-range-slider-target="draw">
-      <% full = 100 %>
-      <% rest = 18 %>
-      <% (full - rest).times do %>
-        <div><%= content_tag :i, '', class: 'fa-regular fa-circle' %></div>
-      <% end %>
-      <% rest.times do %>
-        <div><%= content_tag :i, '', class: 'fa-regular fa-face-grin-hearts' %></div>
-      <% end %>
+      <div class="order-draw" data-range-slider-target="draw">
+        <% full = 100 %>
+        <% rest = 18 %>
+        <% (full - rest).times do %>
+          <div><%= content_tag :i, '', class: 'fa-regular fa-circle' %></div>
+        <% end %>
+        <% rest.times do %>
+          <div><%= content_tag :i, '', class: 'fa-regular fa-face-grin-hearts' %></div>
+        <% end %>
+      </div>
+
     </div>
-  </div>
-  <div class="countdown" data-controller="countdown" data-countdown-endtime-value="<%= @sale.end_date %>">
+    <div class="countdown" data-controller="countdown" data-countdown-endtime-value="<%= @sale.end_date %>">
     <div class="mx-4"><h1><i class="fa-solid fa-clock"></i> Fin de la vente dans</h1></div>
     <div id="timer">
       <span data-countdown-target="days"></span>
@@ -44,6 +46,7 @@
       <span data-countdown-target="minutes"></span>
       <span>min:</span>
       <span data-countdown-target="seconds"></span>
+    </div>
     </div>
   </div>
 </div>

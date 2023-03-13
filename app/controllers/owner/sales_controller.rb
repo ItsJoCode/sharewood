@@ -11,13 +11,14 @@ class Owner::SalesController < ApplicationController
 
   def new
     @sale = Sale.new
+    @product = Product.find(params[:product_id])
   end
 
   def create
     @sale = Sale.new(sale_params)
     @product = Product.find(params[:product_id])
     @sale.product = @product
-    if @sale.save
+    if @sale.save!
       redirect_to owner_sale_path(@sale)
     else
       render :new, status: :unprocessable_entity
