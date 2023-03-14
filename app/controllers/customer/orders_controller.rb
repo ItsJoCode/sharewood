@@ -16,7 +16,7 @@ class Customer::OrdersController < ApplicationController
     if @order.save!
       @sale.update(current_capacity: @sale.current_capacity + @order.capacity)
       @sale.update_sale_status
-      redirect_to customer_orders_path
+      redirect_to customer_sale_path(@sale, anchor: "sales-wrapper")
     else
       render 'customer/sales/show', status: :unprocessable_entity
     end

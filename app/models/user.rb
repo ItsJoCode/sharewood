@@ -25,7 +25,7 @@ class User < ApplicationRecord
     if self.owner?
       Sale.where(product_id: self.products).near(self, 30)
     elsif self.customer?
-      Sale.all.near(self, 10)
+      Sale.all.near(self, 20)
     end
   end
 

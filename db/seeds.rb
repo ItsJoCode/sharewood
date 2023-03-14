@@ -143,7 +143,8 @@ saleone = Sale.new(
   end_date: Date.today + 4,
   price_reduction: 10,
   progress: 0,
-  product_id: crepito.id
+  product_id: crepito.id,
+  current_capacity: 20.0
 )
 saleone.save!
 puts "sale 1 : #{crepito.name} pour #{jo.first_name} !!!"
@@ -154,7 +155,8 @@ saletwo = Sale.new(
   end_date: Date.today + 10,
   price_reduction: 12,
   progress: 0,
-  product_id: woodstock.id
+  product_id: woodstock.id,
+  current_capacity: 55.0
 )
 saletwo.save!
 puts "sale 2 : #{woodstock.name} pour #{antho.first_name} !!!"
@@ -165,7 +167,8 @@ salethree = Sale.new(
   end_date: Date.today + 14,
   price_reduction: 20,
   progress: 0,
-  product_id: pellematic.id
+  product_id: pellematic.id,
+  current_capacity: 150.0
 )
 salethree.save!
 puts "sale 3 : #{pellematic.name} pour #{flo.first_name} !!!"
@@ -176,7 +179,8 @@ salefour = Sale.new(
   end_date: Date.today + 24,
   price_reduction: 30,
   progress: 0,
-  product_id: pellematic.id
+  product_id: pellematic.id,
+  current_capacity: 200.0
 )
 salefour.save!
 puts "sale 4 : #{pellematic.name} pour #{flo.first_name} !!!"
