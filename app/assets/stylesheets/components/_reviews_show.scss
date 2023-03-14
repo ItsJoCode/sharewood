@@ -1,0 +1,29 @@
+.avis-container {
+  margin: 20px;
+}
+
+.review {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review p:first-child {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.review p.rating {
+  margin-bottom: 0;
+}
+
+.review i.fa-star, .review i.far.fa-star {
+  color: gold;
+}
+
+.review p.content {
+  margin-top: 0;
+}
