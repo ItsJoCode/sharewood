@@ -1,0 +1,33 @@
+.order-draw {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+
+  div {
+    padding: 2px;
+    display: flex;
+    align-items: center
+  }
+}
+
+.order-draw-circle {
+  i {
+    font-size: 20px;
+  }
+}
+
+.order-draw-avatar {
+  img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 2px solid #4DAF50;
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+.fa-solid {
+  color: #4DAF50;
+}
