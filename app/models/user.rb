@@ -25,7 +25,8 @@ class User < ApplicationRecord
     if self.owner?
       Sale.where(product_id: self.products).near(self, 30)
     elsif self.customer?
-      Sale.all.near(self, 20)
+      # Sale.all.near(self, 20)
+      Sale.where(progress: :in_progress).near(self, 20)
     end
   end
 

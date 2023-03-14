@@ -2,8 +2,9 @@ class Owner::SalesController < ApplicationController
   before_action :set_sale, only: %i[show]
 
   def index
-    @sales = current_user.near_sales
-    @markers = current_user.near_markers_for(@sales)
+    # @sales = current_user.near_sales
+    @sales = Sale.all
+    @markers = @sales.define_markers
   end
 
   def show
