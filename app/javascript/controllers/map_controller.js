@@ -8,11 +8,11 @@ import { Controller } from "@hotwired/stimulus"
 
   connect() {
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.showPosition, this.showError)
-    } else {
-      alert('La géolocalisation n\'est pas prise en charge par ce navigateur.')
-    }
+    // if (navigator.geolocation) {
+    //  navigator.geolocation.getCurrentPosition(this.showPosition, this.showError)
+    // } else {
+    //  alert('La géolocalisation n\'est pas prise en charge par ce navigateur.')
+    // }
 
     mapboxgl.accessToken = this.apiKeyValue
     this.map = new mapboxgl.Map({
