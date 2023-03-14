@@ -1,7 +1,15 @@
-<h1>My Products</h1>
+<div class="product-banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1514064019862-23e2a332a6a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1614&q=80')">
+  <div class="container">
+    <h1><strong>Mes produits</strong></h1>
+  </div>
+</div>
 
-<ul>
-<% @products.each do |product| %>
-  <li><%= product.name %></li>
-<% end %>
-</ul>
+<div class="container">
+  <div class="cards">
+    <% @products.each do |product| %>
+      <div class="card-pellet">
+        <%= render 'products/card_product', product: product %>
+      </div>
+    <% end %>
+  </div>
+</div>
