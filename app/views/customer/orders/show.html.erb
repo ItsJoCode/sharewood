@@ -1,2 +1,25 @@
-<h1>Customer::Orders#show</h1>
-<p>Find me in app/views/customer/orders/show.html.erb</p>
+<h1>Resumé de votre commande</h1>
+
+<% if @order.review.present? %>
+  <p>Vous avez déjà laissé une review sur cet order</p>
+<% elsif @order.sale.done? %>
+  <div class="row p-5">
+    <div class="log col-12 col-sm-4 mx-auto p-4">
+      <h2 class="text-center">Donnez-nous votre avis</h2>
+      <%= simple_form_for [:customer, @order, @review] do |f| %>
+        <div class="col-12 mb-3 pt-5">
+          <%= f.input :content,
+                      label: false,
+                      placeholder: "Votre avis" %>
+        </div>
+        <div class="col-12 mb-3">
+          <%= f.input :rating,
+                      collection: (1..5),
+                      label: false,
+                      placeholder: "Note de 1 à 5"%>
+        </div>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

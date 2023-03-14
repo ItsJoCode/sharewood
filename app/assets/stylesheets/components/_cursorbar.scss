@@ -1,9 +1,9 @@
 .select-button {
-  position: absolute;
+  //position: absolute;
   left: 290px;
   bottom: -395px;
   width: 300px;
-  height: 150px;
+  //height: 150px;
   padding: 1px;
   // border-radius: 4px;
   // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -71,8 +71,8 @@
   .range-slider output {
     display: block;
     position: absolute;
-    top: -30px;
-    left: 0;
+    top: 30px;
+    left: -50px;
     width: 40px;
     height: 30px;
     font-size: 14px;
@@ -90,7 +90,7 @@
     justify-content: space-between;
   }
 
-  a {
+  .range-slider input[type="submit"] {
     color: white;
     background: #4CAF50;
     border-radius: 30px;

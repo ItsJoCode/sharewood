@@ -72,7 +72,7 @@ flo = User.new(
   last_name: "Arène",
   email: "florent.arene@gmail.com",
   address: "51 Cours Pasteur, 33000 Bordeaux, France",
-  role: 1,
+  role: 0,
   password: PASSWD
 )
 flo.save!

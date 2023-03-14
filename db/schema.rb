@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_10_121154) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_140703) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -74,17 +74,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_121154) do
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.integer "rating"
+    t.bigint "order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_reviews_on_order_id"
+  end
+
   create_table "sales", force: :cascade do |t|
     t.string "address"
     t.integer "sale_capacity"
     t.datetime "end_date"
     t.integer "price_reduction"
-    t.integer "progress"
+    t.integer "progress", default: 0
     t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.float "current_capacity", default: 0.0
     t.index ["product_id"], name: "index_sales_on_product_id"
   end
 
@@ -112,5 +122,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_121154) do
   add_foreign_key "orders", "sales"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "users"
+  add_foreign_key "reviews", "orders"
   add_foreign_key "sales", "products"
 end

@@ -5,16 +5,20 @@ class Customer::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @review = Review.new
   end
 
   def create
     @order = Order.new(order_params)
     @sale = Sale.find(params[:sale_id])
     @order.sale = @sale
-    if @order.save
+    @order.user = current_user
+    if @order.save!
+      @sale.update(current_capacity: @sale.current_capacity + @order.capacity)
+      @sale.update_sale_status
       redirect_to customer_orders_path
     else
-      render '/sale/show', status: :unprocessable_entity
+      render 'customer/sales/show', status: :unprocessable_entity
     end
   end
 

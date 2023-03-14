@@ -1,13 +1,10 @@
-$footer-height: 260px;
-
-.site-footer
-{
+.site-footer {
   margin-top: auto;
-  height: #{$footer-height};
+  height: 260px;
   // background-color:#3B5B50;
   // background-color:#04534f;
   background-color: #03363d;
-  padding:45px 0 20px;
+  padding: 45px 0 20px;
   font-size:15px;
   line-height:24px;
   color:#FFFFFF;
