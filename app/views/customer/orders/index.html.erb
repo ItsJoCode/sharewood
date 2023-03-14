@@ -1,7 +1,11 @@
-<h1>Mes commandes :</h1>
-
-<div class="orders-state">
-  <div class="orders-encours">
+<div class="owner-banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "autumnwood.png" %>')">
+  <div class="container">
+    <h1><strong>Mes commandes</strong></h1>
+  </div>
+</div>
+<div class="container">
+  <div class="orders-state">
+    <%# <div class="orders-encours"> %>
     <h2>En cours</h2>
     <div class="cards">
       <% @orders.each do |order| %>
@@ -12,20 +16,17 @@
         </div>
       <% end %>
     </div>
-  </div>
-
-  <h2>Validées</h2>
-  <div class="orders-validées">
-    <%= render "shared/product_card" %>
-  </div>
-
-  <h2>Livrées</h2>
-  <div class="orders-livrées">
-    <%= render "shared/product_card" %>
-  </div>
-
-  <h2>Annulées</h2>
-  <div class="orders-annulées">
-    <%= render "shared/product_card" %>
+    <h2>Validées</h2>
+    <div class="orders-validées">
+      <%= render "shared/product_card" %>
+    </div>
+    <h2>Livrées</h2>
+    <div class="orders-livrées">
+      <%= render "shared/product_card" %>
+    </div>
+    <h2>Annulées</h2>
+    <div class="orders-annulées">
+      <%= render "shared/product_card" %>
+    </div>
   </div>
 </div>
