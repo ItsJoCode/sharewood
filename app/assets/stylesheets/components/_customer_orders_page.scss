@@ -1,7 +1,7 @@
 h1 {
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem;
   margin-top: 20px;
   margin-left: 50px;
   color:#4a4741;
@@ -9,7 +9,7 @@ h1 {
 
 .orders-state {
 
-  margin-top: 30px;
+  // margin-top: 30px;
 
   h2 {
     border: solid;
@@ -19,6 +19,7 @@ h1 {
     font-weight: 600;
     margin-bottom: 1rem;
     margin-left: 50px;
+    margin-top: 10px;
     color:#4a4741;
     text-align: center;
     cursor: pointer; /* Add cursor property to change the cursor icon on hover */
@@ -45,16 +46,16 @@ h1 {
   }
 
   .orders-validées {
-    margin-left: -142px;
+    // margin-left: -142px;
   }
 
   .orders-livrées {
     opacity: 0.5;
-    margin-left: -142px;
+    // margin-left: -142px;
   }
 
   .orders-annulées {
     opacity: 0.5;
-    margin-left: -142px;
+    // margin-left: -142px;
   }
 }

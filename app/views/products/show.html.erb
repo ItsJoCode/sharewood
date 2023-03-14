@@ -9,7 +9,7 @@
   <div class="avis-container">
     <% @reviews.each do |review| %>
       <div class="review">
-        <p><%= image_tag review.order.user.photo.key %> Avis de <%= review.order.user.first_name %> - <% review.rating.times do %> <i class="fa-solid fa-star"></i><% end %><% (5 - review.rating).times do %><i class="far fa-star"></i><% end %> </p>
+        <p> Avis de <%= review.order.user.first_name %> - <% review.rating.times do %> <i class="fa-solid fa-star"></i><% end %><% (5 - review.rating).times do %><i class="far fa-star"></i><% end %> </p>
         <p><%= review.content %></p>
       </div>
     <% end %>

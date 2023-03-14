@@ -1,3 +1,5 @@
+require "open-uri"
+
 Creator.destroy_all
 Review.destroy_all
 Order.destroy_all
@@ -12,6 +14,7 @@ puts 'Creating some users...'
 
 PASSWD = "azerty"
 
+file = URI.open("https://res.cloudinary.com/dsjzngtmn/image/upload/v1678785884/development/5avwn9zdszyjwtbtsw55chuv7sag.jpg")
 jo = User.new(
   first_name: "Jonathan",
   last_name: "Bergerot",
@@ -20,9 +23,11 @@ jo = User.new(
   role: 1,
   password: PASSWD
 )
+jo.photo.attach(io: file, filename: "#{jo.first_name}.jpg", content_type: "image/jpg")
 jo.save!
 puts "#{jo.first_name} OK !!!"
 
+file = URI.open("https://res.cloudinary.com/dsjzngtmn/image/upload/v1678785577/development/5mv51ucz5csry8p04g5gopfacx9m.jpg")
 antho = User.new(
   first_name: "Anthony",
   last_name: "Gombert",
@@ -31,9 +36,11 @@ antho = User.new(
   role: 1,
   password: PASSWD
 )
+antho.photo.attach(io: file, filename: "#{antho.first_name}.jpg", content_type: "image/jpg")
 antho.save!
 puts "#{antho.first_name} OK !!!"
 
+file = URI.open("https://res.cloudinary.com/dsjzngtmn/image/upload/v1678790840/development/hrodz5l5t74cpqsxi92rznd7oak5.jpg")
 ro = User.new(
   first_name: "Ronan",
   last_name: "Laporte-Guiziou",
@@ -42,9 +49,11 @@ ro = User.new(
   role: 0,
   password: PASSWD
 )
+ro.photo.attach(io: file, filename: "#{ro.first_name}.jpg", content_type: "image/jpg")
 ro.save!
 puts "#{ro.first_name} OK !!!"
 
+file = URI.open("https://res.cloudinary.com/dsjzngtmn/image/upload/v1678791299/development/cnpbx12n01h25mc7pellabd73u90.jpg")
 valentine = User.new(
   first_name: "Valentine",
   last_name: "Ecrepont",
@@ -53,28 +62,33 @@ valentine = User.new(
   role: 0,
   password: PASSWD
 )
+valentine.photo.attach(io: file, filename: "#{valentine.first_name}.jpg", content_type: "image/jpg")
 valentine.save!
 puts "#{valentine.first_name} OK !!!"
 
+file = URI.open("https://res.cloudinary.com/dsjzngtmn/image/upload/v1678799399/development/g65km9r17awcw4rr5153y05o9l61.jpg")
 rayane = User.new(
   first_name: "Rayane",
   last_name: "Nordine",
   email: "rayane.nordine@gmail.com",
-  address: "19 Rue du Père Louis Jabrun, 33000 Bordeaux, France",
+  address: "107 cours Balguerie Stuttenberg, 33000 Bordeaux, France",
   role: 0,
   password: PASSWD
 )
+rayane.photo.attach(io: file, filename: "#{rayane.first_name}.jpg", content_type: "image/jpg")
 rayane.save!
 puts "#{rayane.first_name} OK !!!"
 
+file = URI.open("https://res.cloudinary.com/dsjzngtmn/image/upload/v1678785634/development/zz026ywc3q62a4sqq6pkrrp8bmxe.jpg")
 flo = User.new(
   first_name: "Florent",
   last_name: "Arène",
   email: "florent.arene@gmail.com",
   address: "51 Cours Pasteur, 33000 Bordeaux, France",
-  role: 0,
+  role: 1,
   password: PASSWD
 )
+flo.photo.attach(io: file, filename: "#{flo.first_name}.jpg", content_type: "image/jpg")
 flo.save!
 puts "#{flo.first_name} OK !!!"
 
@@ -143,7 +157,8 @@ saleone = Sale.new(
   end_date: Date.today + 4,
   price_reduction: 10,
   progress: 0,
-  product_id: crepito.id
+  product_id: crepito.id,
+  current_capacity: 20.0
 )
 saleone.save!
 puts "sale 1 : #{crepito.name} pour #{jo.first_name} !!!"
@@ -154,7 +169,8 @@ saletwo = Sale.new(
   end_date: Date.today + 10,
   price_reduction: 12,
   progress: 0,
-  product_id: woodstock.id
+  product_id: woodstock.id,
+  current_capacity: 55.0
 )
 saletwo.save!
 puts "sale 2 : #{woodstock.name} pour #{antho.first_name} !!!"
@@ -164,8 +180,9 @@ salethree = Sale.new(
   sale_capacity: 150,
   end_date: Date.today + 14,
   price_reduction: 20,
-  progress: 0,
-  product_id: pellematic.id
+  progress: 2,
+  product_id: pellematic.id,
+  current_capacity: 150.0
 )
 salethree.save!
 puts "sale 3 : #{pellematic.name} pour #{flo.first_name} !!!"
@@ -175,8 +192,9 @@ salefour = Sale.new(
   sale_capacity: 200,
   end_date: Date.today + 24,
   price_reduction: 30,
-  progress: 0,
-  product_id: pellematic.id
+  progress: 2,
+  product_id: pellematic.id,
+  current_capacity: 200.0
 )
 salefour.save!
 puts "sale 4 : #{pellematic.name} pour #{flo.first_name} !!!"
