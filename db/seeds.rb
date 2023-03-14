@@ -1,9 +1,9 @@
 Creator.destroy_all
+Review.destroy_all
 Order.destroy_all
 Sale.destroy_all
 Product.destroy_all
 User.destroy_all
-# Review.destroy_all
 
 ################################
 #----------- Users ------------#
@@ -268,24 +268,47 @@ puts '....... Orders finished!'
 ################################
 puts "Creating some reviews ..."
 
-
 reviewone = Review.new(
-
-
-
+  content: "Les pellets que j'ai achetés étaient de haute qualité et ont brûlé proprement sans produire beaucoup de cendres.",
+  rating: 4,
+  order_id: orderfour.id
 )
+reviewone.save!
 
-reviewone = Review.new(
-
-
-
+reviewtwo = Review.new(
+  content: "Je suis très satisfait de mon achat de pellets. Ils sont économiques et écologiques, ce qui est important pour moi.",
+  rating: 5,
+  order_id: orderfive.id
 )
+reviewtwo.save!
 
+reviewthree = Review.new(
+  content: "J'ai acheté des pellets pour la première fois et j'ai été déçu. Ils ont brûlé très rapidement et n'ont pas produit beaucoup de chaleur. Je ne les achèterai plus.",
+  rating: 2,
+  order_id: ordersix.id
+)
+reviewthree.save!
 
+reviewfour = Review.new(
+  content: "Je m'attendais à en avoir assez pour quelques semaines, mais ils ont duré moins longtemps que prévu.",
+  rating: 3,
+  order_id: orderseven.id
+)
+reviewfour.save!
 
+reviewfive = Review.new(
+  content: "Les pellets que j'ai achetés étaient faciles à stocker et à utiliser. Je suis content de les avoir choisis pour chauffer ma maison.",
+  rating: 4,
+  order_id: orderheight.id
+)
+reviewfive.save!
 
-
-
+reviewsix = Review.new(
+  content: "Les pellets que j'ai achetés étaient corrects, mais j'ai remarqué qu'ils avaient une odeur désagréable lorsqu'ils brûlaient. Ce n'était pas très agréable.",
+  rating: 4,
+  order_id: ordernine.id
+)
+reviewsix.save!
 
 
 ################################
