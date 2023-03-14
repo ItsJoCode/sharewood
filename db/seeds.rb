@@ -1,9 +1,9 @@
 Creator.destroy_all
+Review.destroy_all
 Order.destroy_all
 Sale.destroy_all
 Product.destroy_all
 User.destroy_all
-# Review.destroy_all
 
 ################################
 #----------- Users ------------#
@@ -11,6 +11,7 @@ User.destroy_all
 puts 'Creating some users...'
 
 PASSWD = "azerty"
+
 jo = User.new(
   first_name: "Jonathan",
   last_name: "Bergerot",
@@ -43,6 +44,28 @@ ro = User.new(
 )
 ro.save!
 puts "#{ro.first_name} OK !!!"
+
+valentine = User.new(
+  first_name: "Valentine",
+  last_name: "Ecrepont",
+  email: "valentine.ecrepont@gmail.com",
+  address: "107 cours Balguerie Stuttenberg, 33000 Bordeaux, France",
+  role: 0,
+  password: PASSWD
+)
+valentine.save!
+puts "#{valentine.first_name} OK !!!"
+
+rayane = User.new(
+  first_name: "Rayane",
+  last_name: "Nordine",
+  email: "rayane.nordine@gmail.com",
+  address: "19 Rue du Père Louis Jabrun, 33000 Bordeaux, France",
+  role: 0,
+  password: PASSWD
+)
+rayane.save!
+puts "#{rayane.first_name} OK !!!"
 
 flo = User.new(
   first_name: "Florent",
@@ -114,7 +137,7 @@ addr = [
   "6 Avenue Pierre Cérésole, 33600 Pessac, France"
 ]
 
-sale = Sale.new(
+saleone = Sale.new(
   address: addr[0],
   sale_capacity: 50,
   end_date: Date.today + 4,
@@ -122,10 +145,10 @@ sale = Sale.new(
   progress: 0,
   product_id: crepito.id
 )
-sale.save!
+saleone.save!
 puts "sale 1 : #{crepito.name} pour #{jo.first_name} !!!"
 
-sale = Sale.new(
+saletwo = Sale.new(
   address: addr[1],
   sale_capacity: 100,
   end_date: Date.today + 10,
@@ -133,10 +156,10 @@ sale = Sale.new(
   progress: 0,
   product_id: woodstock.id
 )
-sale.save!
+saletwo.save!
 puts "sale 2 : #{woodstock.name} pour #{antho.first_name} !!!"
 
-sale = Sale.new(
+salethree = Sale.new(
   address: addr[2],
   sale_capacity: 150,
   end_date: Date.today + 14,
@@ -144,10 +167,10 @@ sale = Sale.new(
   progress: 0,
   product_id: pellematic.id
 )
-sale.save!
+salethree.save!
 puts "sale 3 : #{pellematic.name} pour #{flo.first_name} !!!"
 
-sale = Sale.new(
+salefour = Sale.new(
   address: addr[3],
   sale_capacity: 200,
   end_date: Date.today + 24,
@@ -155,9 +178,9 @@ sale = Sale.new(
   progress: 0,
   product_id: pellematic.id
 )
-sale.save!
+salefour.save!
 puts "sale 4 : #{pellematic.name} pour #{flo.first_name} !!!"
-puts "et aucune sale pour #{ro.first_name} !!!"
+puts "et aucune sale pour #{ro.first_name},#{valentine.first_name} et #{rayane.first_name}!!!"
 
 puts '....... Sales finished!'
 
@@ -166,15 +189,127 @@ puts '....... Sales finished!'
 ################################
 puts "Creating some orders ..."
 
-order = Order.new(
-  capacity: 0,
-  sale_id: sale.id,
+orderone = Order.new(
+  capacity: 20,
+  sale_id: saleone.id,
   user_id: ro.id
 )
-order.save!
+orderone.save!
 puts "mais création d'une order pour #{ro.first_name} !!!"
 
+ordertwo = Order.new(
+  capacity: 30,
+  sale_id: saletwo.id,
+  user_id: ro.id
+)
+ordertwo.save!
+puts "mais création d'une order pour #{ro.first_name} !!!"
+
+orderthree = Order.new(
+  capacity: 25,
+  sale_id: saletwo.id,
+  user_id: valentine.id
+)
+orderthree.save!
+puts "mais création d'une order pour #{valentine.first_name} !!!"
+
+orderfour = Order.new(
+  capacity: 70,
+  sale_id: salefour.id,
+  user_id: ro.id
+)
+orderfour.save!
+puts "mais création d'une order pour #{ro.first_name} !!!"
+
+orderfive = Order.new(
+  capacity: 90,
+  sale_id: salefour.id,
+  user_id: valentine.id
+)
+orderfive.save!
+puts "mais création d'une order pour #{valentine.first_name} !!!"
+
+ordersix = Order.new(
+  capacity: 40,
+  sale_id: salefour.id,
+  user_id: rayane.id
+)
+ordersix.save!
+puts "mais création d'une order pour #{rayane.first_name} !!!"
+
+orderseven = Order.new(
+  capacity: 40,
+  sale_id: salethree.id,
+  user_id: ro.id
+)
+orderseven.save!
+puts "mais création d'une order pour #{ro.first_name} !!!"
+
+orderheight = Order.new(
+  capacity: 60,
+  sale_id: salethree.id,
+  user_id: valentine.id
+)
+orderheight.save!
+puts "mais création d'une order pour #{valentine.first_name} !!!"
+
+ordernine = Order.new(
+  capacity: 50,
+  sale_id: salethree.id,
+  user_id: rayane.id
+)
+ordernine.save!
+puts "mais création d'une order pour #{rayane.first_name} !!!"
+
 puts '....... Orders finished!'
+
+################################
+#---------- Reviews ----------#
+################################
+puts "Creating some reviews ..."
+
+reviewone = Review.new(
+  content: "Les pellets que j'ai achetés étaient de haute qualité et ont brûlé proprement sans produire beaucoup de cendres.",
+  rating: 4,
+  order_id: orderfour.id
+)
+reviewone.save!
+
+reviewtwo = Review.new(
+  content: "Je suis très satisfait de mon achat de pellets. Ils sont économiques et écologiques, ce qui est important pour moi.",
+  rating: 5,
+  order_id: orderfive.id
+)
+reviewtwo.save!
+
+reviewthree = Review.new(
+  content: "J'ai acheté des pellets pour la première fois et j'ai été déçu. Ils ont brûlé très rapidement et n'ont pas produit beaucoup de chaleur. Je ne les achèterai plus.",
+  rating: 2,
+  order_id: ordersix.id
+)
+reviewthree.save!
+
+reviewfour = Review.new(
+  content: "Je m'attendais à en avoir assez pour quelques semaines, mais ils ont duré moins longtemps que prévu.",
+  rating: 3,
+  order_id: orderseven.id
+)
+reviewfour.save!
+
+reviewfive = Review.new(
+  content: "Les pellets que j'ai achetés étaient faciles à stocker et à utiliser. Je suis content de les avoir choisis pour chauffer ma maison.",
+  rating: 4,
+  order_id: orderheight.id
+)
+reviewfive.save!
+
+reviewsix = Review.new(
+  content: "Les pellets que j'ai achetés étaient corrects, mais j'ai remarqué qu'ils avaient une odeur désagréable lorsqu'ils brûlaient. Ce n'était pas très agréable.",
+  rating: 4,
+  order_id: ordernine.id
+)
+reviewsix.save!
+
 
 ################################
 #---------- Creators ----------#
@@ -199,7 +334,7 @@ puts "créateur : #{jo.first_name} ok !!!"
 
 creator = Creator.new(
   name: ro.first_name,
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.",
+  description: "Experienced in digital and audiovisual project management and video production. I decided to embark on learning web development in order to be able to supervise teams in tech companies.",
   photo_url: "https://ca.slack-edge.com/T02NE0241-U04K4VAV97E-726d7ba7c785-512"
 )
 creator.save!
