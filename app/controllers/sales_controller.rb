@@ -4,8 +4,8 @@ class SalesController < ApplicationController
   def index
     if current_user&.customer?
       redirect_to customer_sales_path and return
-    elsif current_user&.owner?
-      redirect_to owner_sales_path and return
+    # elsif current_user&.owner?
+    #   redirect_to sales_path and return
     end
 
     @sales = Sale.all

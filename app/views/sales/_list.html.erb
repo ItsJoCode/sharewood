@@ -1,5 +1,4 @@
 <div id="list" class="sale-card" data-search-sales-target='list'>
-
 <div class="fullmap hiddenmap" data-search-sales-target='fullmap'>
     <div id="map" class="geo-map"
       data-controller="map"
@@ -43,7 +42,7 @@
   </div>
 
   <%= link_to "Voir la carte", "#",
-      class: "btn btn-dark mx-auto btn-fixed",
+      class: "btn btn-dark mx-auto mb-4 btn-fixed",
       data: {
               action: "search-sales#display",
               "search-sales-target": "changebtn"

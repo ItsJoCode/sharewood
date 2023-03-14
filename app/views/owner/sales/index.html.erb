@@ -1,47 +1,43 @@
-<h1>Mes ventes :</h1>
-<br>
-
-<div class="sales-state">
-    <h2>En cours</h2>
-  <div class="sales-encours">
-    <ul>
-      <% @sales.each do |sale| %>
-        <li><%= render "shared/product_card" %></li>
-      <% end %>
-    </ul>
-  </div>
-    <h2>Validées</h2>
-  <div class="sales-validées">
-    <ul>
-      <% @sales.each do |sale| %>
-        <li><%= render "shared/product_card" %></li>
-      <% end %>
-    </ul>
-  </div>
-
-    <h2>Livrées</h2>
-  <div class="sales-livrées">
-    <ul>
-      <% @sales.each do |sale| %>
-        <li><%= render "shared/product_card" %></li>
-      <% end %>
-    </ul>
-  </div>
-
-    <h2>Annulées</h2>
-  <div class="sales-annulées">
-    <ul>
-      <% @sales.each do |sale| %>
-        <li><%= render "shared/product_card" %></li>
-      <% end %>
-    </ul>
+<div class="owner-banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1514064019862-23e2a332a6a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1614&q=80')">
+  <div class="container">
+    <h1><strong>Mes ventes</strong></h1>
   </div>
 </div>
+<div class="container">
+  <div class="orders-state">
+    <h2>En cours</h2>
+      <% @sales.each do |sale| %>
+        <%= render "shared/product_card" %>
+      <% end %>
 
-<% unless @sales.empty? %>
-  <div class="geo-map"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-<% end %>
+    <h2>Validées</h2>
+    <div class="orders-validées">
+      <% @sales.each do |sale| %>
+        <%= render "shared/product_card" %>
+      <% end %>
+    </div>
+
+    <h2>Livrées</h2>
+    <div class="orders-livrées">
+      <% @sales.each do |sale| %>
+        <%= render "shared/product_card" %>
+      <% end %>
+    </div>
+
+    <h2>Annulées</h2>
+    <div class="orders-annulées">
+      <% @sales.each do |sale| %>
+        <%= render "shared/product_card" %>
+      <% end %>
+    </div>
+
+    <% unless @sales.empty? %>
+      <div class ="map-wrapper">
+        <div class="geo-map"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    <% end %>
+</div>
