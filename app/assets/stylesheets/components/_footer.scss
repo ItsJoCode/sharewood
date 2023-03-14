@@ -48,12 +48,17 @@
 .footer-links a
 {
   color:#FFFFFF;
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 1px solid white;
+  transition: transform 0.8s ease;
 }
 
 .footer-links a:active,.footer-links a:focus,.footer-links a:hover
 {
-  color:#23211F;
+  color: white;
   text-decoration:none;
+  transform: scale(1.1);
 }
 .footer-links.inline li
 {

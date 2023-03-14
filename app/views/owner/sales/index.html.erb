@@ -29,14 +29,12 @@
       <% @sales.each do |sale| %>
         <%= render "shared/product_card" %>
       <% end %>
-    </div>
-  </div>
-
-  <% unless @sales.empty? %>
+<% unless @sales.empty? %>
+  <div class ="map-wrapper">
     <div class="geo-map"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-  <% end %>
+  </div>
 </div>

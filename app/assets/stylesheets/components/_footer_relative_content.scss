@@ -1,4 +1,14 @@
-/* Sélectionne tous les éléments de texte à l'intérieur de la classe "footer_relative_content" */
+
+.footer_relative_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 15px;
+}
+
+
+
+
 .footer_relative_content p {
   font-family: Arial, sans-serif; /* Utilise la police Arial ou une police sans-serif si Arial n'est pas disponible */
   font-size: 1.2rem; /* Définit la taille de police à 1,2 fois la taille par défaut */
