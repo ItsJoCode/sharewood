@@ -15,7 +15,7 @@
             <%= link_to customer_sale_path(sale) do %>
               <div class="card-pellet">
                 <%= render 'products/card_product', product: sale.product %>
-                <%# <br> %>
+                <br>
                 <%= render 'sales/card_sale_footer', sale: sale %>
               </div>
             <% end %>
@@ -23,7 +23,7 @@
             <%= link_to owner_sale_path(sale) do %>
               <div class="card-pellet">
                 <%= render 'products/card_product', product: sale.product %>
-                <%# <br> %>
+                <br>
                 <%= render 'sales/card_sale_footer', sale: sale %>
               </div>
             <% end %>
@@ -32,7 +32,7 @@
           <%= link_to sale_path(sale) do %>
             <div class="card-pellet">
               <%= render 'products/card_product', product: sale.product %>
-              <%# <br> %>
+              <br>
               <%= render 'sales/card_sale_footer', sale: sale %>
             </div>
           <% end %>
