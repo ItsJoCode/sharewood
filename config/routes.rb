@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :products, only: %i[index show new create] do
       resources :sales, only: %i[new create]
     end
-    resources :sales, only: %i[index show]
+    resources :sales, only: %i[index show update]
   end
 
   namespace :customer do
