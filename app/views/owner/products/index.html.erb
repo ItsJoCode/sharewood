@@ -5,11 +5,14 @@
 </div>
 
 <div class="container">
+  <%= link_to "Créer un produit", new_owner_product_path, class: "btn btn-outline-secondary mb-4", style: "border-radius: 30px;" %>
   <div class="cards">
     <% @products.each do |product| %>
-      <div class="card-pellet">
-        <%= render 'products/card_product', product: product %>
-      </div>
+      <%= link_to owner_product_path(product) do %>
+        <div class="card-pellet">
+          <%= render 'products/card_product', product: product %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

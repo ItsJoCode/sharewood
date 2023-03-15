@@ -1,8 +1,6 @@
-<h1>Owner::Products#show</h1>
-<p>Find me in app/views/owner/products/show.html.erb</p>
-
-
- <div class="Avis">
+<div class="container">
+  <%= link_to "Créer une vente", new_owner_product_sale_path(@product), class: "btn btn-primary mt-4" %>
+  <div class="Avis">
     <% @reviews.each do |review| %>
       <div class="review">
         <p><%= review.rating %> stars</p>
@@ -11,3 +9,4 @@
       </div>
     <% end %>
   </div>
+</div>

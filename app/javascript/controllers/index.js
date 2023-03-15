@@ -22,8 +22,5 @@ application.register("progress-bar", ProgressBarController)
 import RangeSliderController from "./range_slider_controller"
 application.register("range-slider", RangeSliderController)
 
-import SearchBarController from "./search_bar_controller"
-application.register("search-bar", SearchBarController)
-
 import SearchSalesController from "./search_sales_controller"
 application.register("search-sales", SearchSalesController)
