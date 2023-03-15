@@ -1,7 +1,8 @@
 $card-radius: 4px;
 $card-box-shadow: 0 0 15px rgba(0,0,0,0.2);
 $card-padding: 16px;
-$size-cicle: 30px;
+$size-circle: 30px;
+$color-circle: #C49650;
 
 .card-bg {
   position: relative;
@@ -103,7 +104,7 @@ $size-cicle: 30px;
 }
 
 .product-wrapper {
-  width: 600px;
+  // width: 1000px;
 }
 
 .card-product-description {
@@ -124,7 +125,7 @@ $size-cicle: 30px;
 
 .order-draw {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(20, 1fr);
   justify-items: center;
   border: 1px solid #ccc;
   border-radius: #{$card-radius};
@@ -142,24 +143,24 @@ $size-cicle: 30px;
   }
 
   .fa-solid {
-    color: #4DAF50;
+    color: #{$color-circle};
   }
 }
 
 .order-draw-circle {
   i {
-    font-size: #{$size-cicle};
+    font-size: #{$size-circle};
   }
 }
 
 .order-draw-avatar {
   img {
-    width: #{$size-cicle};
-    height: #{$size-cicle};
+    width: #{$size-circle};
+    height: #{$size-circle};
     object-fit: cover;
     object-position: center;
     border-radius: 50%;
-    border: 2px solid #4DAF50;
+    border: 2px solid #{$color-circle};
     padding: 0px;
     margin: 0px;
   }
