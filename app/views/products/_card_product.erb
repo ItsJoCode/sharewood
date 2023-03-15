@@ -6,12 +6,13 @@
   </div>
 </div>
 <div class="card-content">
-  <div class="card-header">
-    <p class="card-title"><%= product.brand %></p>
-    <p class="card-lot"><em><%= product.weight %> kg</em></p>
-  </div>
-  <div class="card-header">
-    <p class="card-rate"><i class="fa-solid fa-star"></i> <em><%= average_rating(product) %></em></p>
-    <p class="card-lot">Recommandé</p>
-  </div>
+  <p class="card-title"><%= product.brand %></p>
+  <p class="card-descriptif"><%= product.description %></p>
 </div>
+
+
+<%# <div class="card-header">
+    <p class="card-rate"><i class="fa-solid fa-star"></i> <em>4.5</em></p>
+    <p class="card-lot"><em><%= product.weight %>
+    <%# kg</em></p>
+</div> %>

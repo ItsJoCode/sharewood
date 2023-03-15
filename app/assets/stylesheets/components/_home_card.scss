@@ -12,7 +12,7 @@
 .card-pellet {
   width: 300px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
   overflow: hidden;
@@ -28,7 +28,7 @@
 .card-pellet-style {
   width: 300px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   margin-bottom: 20px;
@@ -57,28 +57,43 @@
   }
 }
 
+.card-sale {
+  position: relative;
+}
+
 .card-content {
   padding: 0 20px;
-}
 
-.card-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.card-title {
-  font-weight: bold;
-  margin-top: 0;
-}
-
-.card-rate {
-  .fa-solid {
-    color: gold;
+  .card-title {
+    font-weight: bold;
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 8px;
   }
-}
 
-.card-lot {
-  margin-top: 0;
+  .card-descriptif {
+    margin-top: 0;
+    text-align: center;
+    // justify-content: center;
+    opacity: .5;
+    margin-bottom: 12px;
+    height: 100px;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+
+    .card-rate {
+      .fa-solid {
+        color: gold;
+      }
+    }
+
+    .card-lot {
+      margin-top: 0;
+    }
+  }
 }
 
 .card-description {
@@ -86,36 +101,50 @@
   line-height: 1.5;
 }
 
-.card-capacity_date {
-  display: flex;
-  justify-content: space-between;
-}
-
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.card-price {
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: 10px;
-}
 
 .progress-container {
-  width: 70%;
-  height: 10px;
+  width: 100%;
+  height: 15px;
   // background-color: #eee;
   background-color: #e9ecef;
   // background-color: #dee2e6;
-  margin-top: 16px;
+  border-radius: 30px;
+  margin-bottom: 40px;
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    // background-color: #7bf1a8;
+    background-color: #4CAF50;
+    border-radius: 30px;
+  }
 }
 
-.progress-bar {
-  height: 100%;
-  width: 0%;
-  background-color: #4CAF50;
+
+.card-footer {
+  // position: absolute;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: #495057;
+  color: white;
+  align-items: center;
+  text-align: center;
+
+
+  .card-capacity, .card-price, .card-date {
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  .vertical-bar {
+    width: 3px;
+    height: 74px;
+    background-color: black;
+    opacity: .3;
+  }
 }
 
 .sale-card {

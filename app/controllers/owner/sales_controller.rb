@@ -1,11 +1,14 @@
 class Owner::SalesController < ApplicationController
-  before_action :set_sale, only: %i[show]
+  before_action :set_sale, only: %i[show update]
 
   def index
     # @sales = current_user.near_sales
-    @sales = Sale.all.where(user: current_user)
     # @markers = @sales.define_markers
     # @sales = Sale.all
+    @sales = current_user.product_sales
+    # @sales = []
+    # current_user.products.each { |product| @sales << product.sales }
+    # @sales = @sales.flatten
   end
 
   def show
@@ -25,6 +28,11 @@ class Owner::SalesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def update
+    @sale.update(sale_params)
+    redirect_to owner_sale_path(@sale)
   end
 
   private
