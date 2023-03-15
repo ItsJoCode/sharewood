@@ -7,7 +7,7 @@
       <%= render 'sales/card_sale_footer', sale: @sale %>
     </div>
     <%#= render "products/card_product_description", product: @sale.product %>
-    <div>
+    <div class="sale-submit">
       <% if @sale.confirmed? %>
         <%= simple_form_for([:owner, @sale]) do |f| %>
           <%= f.hidden_field :progress, as: :string, value: "done" %>
