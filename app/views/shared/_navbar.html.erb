@@ -5,41 +5,43 @@
       <%= image_tag "logo.png" %>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <% if user_signed_in? %>
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item welcome-user">
+          <%= link_to "Bienvenue <strong>#{current_user.first_name}</strong>".html_safe, customer_sales_path, class: "nav-link" %>
+        </li>
+      </ul>
+    <% end %>
+
+    <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <% if current_user.customer? %>
-            <li class="nav-item welcome-user">
-              <%= link_to "Bienvenue <strong>#{current_user.first_name}</strong>".html_safe, customer_sales_path, class: "nav-link" %>
+            <li>
+              <%= link_to '<i class="fa-solid fa-magnifying-glass"></i> Rechercher'.html_safe, customer_sales_path, class: "nav-link" %>
             </li>
             <li>
-              <%= link_to '<i class="fa-solid fa-magnifying-glass"></i>'.html_safe, customer_sales_path, class: "nav-link" %>
+              <%= link_to '<i class="fa-solid fa-bag-shopping"></i> Mes Commandes'.html_safe, customer_orders_path, class: "nav-link" %>
             </li>
             <li>
-              <%= link_to '<i class="fa-solid fa-bag-shopping"></i>'.html_safe, customer_orders_path, class: "nav-link" %>
-            </li>
-            <li>
-              <%= link_to '<i class="fa-solid fa-bell"></i>'.html_safe, "#", class: "nav-link" %>
+              <%= link_to '<i class="fa-solid fa-bell"></i> Notifications'.html_safe, "#", class: "nav-link" %>
             </li>
           <% else %>
-            <li class="nav-item welcome-user">
-              <%= link_to "Bienvenue <strong>#{current_user.first_name}</strong>".html_safe, sales_path, class: "nav-link" %>
+            <li>
+              <%= link_to '<i class="fa-solid fa-magnifying-glass"></i> Rechercher'.html_safe, sales_path, class: "nav-link" %>
             </li>
             <li>
-              <%= link_to '<i class="fa-solid fa-magnifying-glass"></i>'.html_safe, sales_path, class: "nav-link" %>
+              <%= link_to '<i class="fa-solid fa-circle-plus"></i> Ajouter un produit'.html_safe, new_owner_product_path, class: "nav-link" %>
             </li>
             <li>
-              <%= link_to '<i class="fa-solid fa-circle-plus"></i>'.html_safe, new_owner_product_path, class: "nav-link" %>
+              <%= link_to '<i class="fa-solid fa-sack-dollar"></i> Mes Ventes'.html_safe, owner_sales_path, class: "nav-link" %>
             </li>
             <li>
-              <%= link_to '<i class="fa-solid fa-sack-dollar"></i>'.html_safe, owner_sales_path, class: "nav-link" %>
-            </li>
-            <li>
-              <%= link_to '<i class="fa-solid fa-bell"></i>'.html_safe, "#", class: "nav-link" %>
+              <%= link_to '<i class="fa-solid fa-bell"></i> Notifications'.html_safe, "#", class: "nav-link" %>
             </li>
           <% end %>
           <li class="nav-item dropdown">
@@ -59,7 +61,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Connexion", new_user_session_path, class: "nav-link" %>
+            <%= link_to '<i class="fa-regular fa-user"></i> Connextion'.html_safe, new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
