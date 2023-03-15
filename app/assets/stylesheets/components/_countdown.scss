@@ -1,17 +1,13 @@
 /* app/assets/stylesheets/countdown.css */
 
 .countdown {
-  position: relative;
-  left: 50px;
-  bottom: 200px;
   width: 300px;
-  height: 150px;
+  font-size: 1.5rem;
 
-  #timer {
+  #timer, #msg-end-sale {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
 
     span:not(:last-child) {
       margin-right: 0.5rem;
@@ -19,9 +15,9 @@
   }
 }
 
-.countdown > div {
-  width: 500px;
-}
+// .countdown > div {
+//  width: 500px;
+// }
 
 // #timer span[data-countdown-target="days"]::before {
 //   content: "Days ";

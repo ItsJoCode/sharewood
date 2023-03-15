@@ -1,5 +1,18 @@
-<div class="card-produit-description">
-  <h2><%= product.name %></h2>
-  <p class="description"><%= product.description %></p>
-  <%= link_to "Détails du produit", product_path(product), class: "btn btn-outline-secondary w-50", style: "border-radius: 30px" %>
-</div>
+<% if @sale %>
+    <div class="order-draw" data-range-slider-target="draw">
+      <% (@sale.sale_capacity - @sale.current_capacity.to_i).times do %>
+        <div class="order-draw-circle"><%= content_tag :i, '', class: 'fa-regular fa-circle' %></div>
+      <% end %>
+      <% @sale.orders.each do | order | %>
+        <% order.capacity.times do %>
+          <div class="order-draw-avatar">
+            <% if order.user.photo.attached? %>
+              <%= cl_image_tag order.user.photo.key %>
+            <% else %>
+              <%= image_tag "avatar.png" %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+<% end %>
