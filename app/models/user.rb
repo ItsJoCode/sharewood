@@ -41,4 +41,10 @@ class User < ApplicationRecord
     )
     markers
   end
+
+  def product_sales
+    sales = []
+    products.each { |product| sales << product.sales }
+    sales.flatten
+  end
 end

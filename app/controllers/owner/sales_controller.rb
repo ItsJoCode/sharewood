@@ -3,8 +3,12 @@ class Owner::SalesController < ApplicationController
 
   def index
     # @sales = current_user.near_sales
-    @sales = Sale.all
-    @markers = @sales.define_markers
+    # @markers = @sales.define_markers
+    # @sales = Sale.all
+    @sales = current_user.product_sales
+    # @sales = []
+    # current_user.products.each { |product| @sales << product.sales }
+    # @sales = @sales.flatten
   end
 
   def show
