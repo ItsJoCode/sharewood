@@ -35,6 +35,23 @@ $card-padding: 16px;
     background-color: #fff;
     margin: 0 16px;
   }
+
+  .sale-submit {
+    position: relative;
+    top: 328px;
+    right: 236px;
+    margin: 16px;
+    font-size: 20px;
+    //padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    //color: #4CAF50;
+    //cursor: pointer;
+    //transition: background-color 0.3s ease;
+    input {
+      color: #777777;
+    }
+  }
 }
 
 .card-category {
