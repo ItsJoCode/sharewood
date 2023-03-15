@@ -13,7 +13,9 @@
     <h2>Validées</h2>
     <div class="orders-validées">
       <% @sales.each do |sale| %>
-        <%= render "shared/product_card" %>
+        <%= link_to owner_sale_path(sale), class:"text-reset text-decoration-none" do %>
+          <%= render "shared/product_card" %>
+        <% end %>
       <% end %>
     </div>
 

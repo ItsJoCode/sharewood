@@ -9,7 +9,7 @@
     <h2>En cours</h2>
     <div class="cards">
       <% @orders.each do |order| %>
-        <div class="card-pellet-style">
+        <div class="card-pellet">
           <%= render 'products/card_product', product: order.sale.product %>
           <%# <br> %>
           <%= render 'sales/card_sale_footer', sale: order.sale %>
