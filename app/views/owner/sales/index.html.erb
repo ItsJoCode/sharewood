@@ -7,11 +7,14 @@
   <div class="sales-state">
     <h2>En cours</h2>
       <div class="cards">
+
         <% @sales.select { |sale| sale.in_progress? }.each do |sale| %>
           <%= link_to owner_sale_path(sale), class:"text-reset text-decoration-none" do %>
+            <div class="card-pellet-style">
             <%= render 'products/card_product', product: sale.product %>
             <br>
             <%= render 'sales/card_sale_footer', sale: sale %>
+          </div>
           <% end %>
         <% end %>
       </div>
@@ -19,9 +22,11 @@
      <div class="cards">
         <% @sales.select { |sale| sale.confirmed? }.each do |sale| %>
           <%= link_to owner_sale_path(sale), class:"text-reset text-decoration-none" do %>
+             <div class="card-pellet-style">
             <%= render 'products/card_product', product: sale.product %>
             <br>
             <%= render 'sales/card_sale_footer', sale: sale %>
+          </div>
           <% end %>
         <% end %>
       </div>
@@ -29,9 +34,11 @@
       <div class="cards">
         <% @sales.select { |sale| sale.done? }.each do |sale| %>
           <%= link_to owner_sale_path(sale), class:"text-reset text-decoration-none" do %>
+             <div class="card-pellet-style">
             <%= render 'products/card_product', product: sale.product %>
             <br>
             <%= render 'sales/card_sale_footer', sale: sale %>
+          </div>
           <% end %>
         <% end %>
       </div>
@@ -39,9 +46,11 @@
     <div class="cards">
         <% @sales.select { |sale| sale.cancel? }.each do |sale| %>
           <%= link_to owner_sale_path(sale), class:"text-reset text-decoration-none" do %>
+             <div class="card-pellet-style">
             <%= render 'products/card_product', product: sale.product %>
             <br>
             <%= render 'sales/card_sale_footer', sale: sale %>
+          </div>
           <% end %>
         <% end %>
       </div>
