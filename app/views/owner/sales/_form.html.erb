@@ -5,7 +5,10 @@
         <div class="col-12 mb-3 pt-5">
           <%= f.input :address,
                       label: false,
-                      placeholder: "Addresse" %>
+                      required: true,
+                      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none" },
+                      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+                      %>
         </div>
         <div class="col-12 mb-3">
           <%= f.input :sale_capacity,
@@ -14,6 +17,8 @@
         </div>
         <div class="col-12 mb-3">
           <%= f.input :end_date,
+                      as: :date,
+                      html5: true,
                       label: false,
                       placeholder: "Fin de la vente" %>
         </div>
