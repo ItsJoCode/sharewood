@@ -11,22 +11,16 @@
       <% @orders.each do |order| %>
         <div class="card-pellet-style">
           <%= render 'products/card_product', product: order.sale.product %>
-          <br>
+          <%# <br> %>
           <%= render 'sales/card_sale_footer', sale: order.sale %>
         </div>
       <% end %>
     </div>
     <h2>Validées</h2>
-    <div class="orders-validées">
-      <%= render "shared/product_card" %>
-    </div>
+
     <h2>Livrées</h2>
-    <div class="orders-livrées">
-      <%= render "shared/product_card" %>
-    </div>
+
     <h2>Annulées</h2>
-    <div class="orders-annulées">
-      <%= render "shared/product_card" %>
-    </div>
+
   </div>
 </div>
