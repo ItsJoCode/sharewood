@@ -39,9 +39,3 @@
 # Ignore Mac and Linux file system files
 *.swp
 .DS_Store
-<<<<<<< HEAD
-# Ignore Gemfile.lock
-Gemfile.lock
-.env*
-=======
->>>>>>> 70ceffb4f1343d2b5150fa60976bcf03d8c53cad
