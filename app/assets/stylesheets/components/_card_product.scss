@@ -1,6 +1,8 @@
-$card-radius: 4px;
+$card-radius: 15px;
 $card-box-shadow: 0 0 15px rgba(0,0,0,0.2);
 $card-padding: 16px;
+$size-circle: 30px;
+$color-circle: #3B5B50;
 
 .card-bg {
   position: relative;
@@ -23,16 +25,14 @@ $card-padding: 16px;
 
 .card-wrapper {
   position: relative;
-  top: -200px;
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 
-  .card-produit-description, .card-category {
+  .card-product-description, .card-category, .order-draw {
     border-radius: #{$card-radius};
     box-shadow: #{$card-box-shadow};
-    background-color: #fff;
     margin: 0 16px;
   }
 
@@ -52,6 +52,12 @@ $card-padding: 16px;
       color: #777777;
     }
   }
+}
+
+.card-wrapper, .counter-wrapper {
+  top: -300px;
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .card-category {
@@ -114,9 +120,12 @@ $card-padding: 16px;
 
 }
 
-.card-produit-description {
+.product-wrapper {
+  margin-top: 100px;
+}
+
+.card-product-description {
   width: 600px;
-  height: 200px;
   padding: #{$card-padding};
   display: flex;
   flex-direction: column;
@@ -127,5 +136,59 @@ $card-padding: 16px;
     border-radius: #{$card-radius};
     padding: #{$card-padding};
     background-color: #f1f1f1;
+    margin: 10px 0;
   }
+}
+
+.order-draw {
+  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  justify-items: center;
+  border: 1px solid #ccc;
+  border-radius: #{$card-radius};
+  padding: #{$card-padding};
+  margin: 0 16px;
+
+  //background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%,rgba(148, 148, 148, 0) 100%), image-url('bg-bois-white.jpg');
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%,rgba(230, 226, 226, 0.5) 100%);
+  background-position: center;
+  background-size: cover;
+
+  div {
+    padding: 2px;
+    display: flex;
+    align-items: center
+  }
+
+  .fa-solid {
+    color: #{$color-circle};
+  }
+}
+
+.order-draw-circle {
+  i {
+    font-size: #{$size-circle};
+  }
+}
+
+.order-draw-avatar {
+  img {
+    width: #{$size-circle};
+    height: #{$size-circle};
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 2px solid #{$color-circle};
+    padding: 0px;
+    margin: 0px;
+    filter: grayscale(0.5)
+  }
+}
+
+.counter-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
