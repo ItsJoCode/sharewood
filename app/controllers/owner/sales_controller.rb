@@ -3,8 +3,9 @@ class Owner::SalesController < ApplicationController
 
   def index
     # @sales = current_user.near_sales
-    @sales = Sale.all
-    @markers = @sales.define_markers
+    @sales = Sale.all.where(user: current_user)
+    # @markers = @sales.define_markers
+    # @sales = Sale.all
   end
 
   def show

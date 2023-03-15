@@ -4,34 +4,51 @@
   </div>
 </div>
 <div class="container">
-  <div class="orders-state">
+  <div class="sales-state">
     <h2>En cours</h2>
-      <% @sales.each do |sale| %>
-        <%= render "shared/product_card" %>
-      <% end %>
-
+      <div class="cards">
+        <% @sales.select { |sale| sale.in_progress? }.each do |sale| %>
+          <div class="card-pellet-style">
+            <%= render 'products/card_product', product: sale.product %>
+            <br>
+            <%= render 'sales/card_sale_footer', sale: sale %>
+          </div>
+        <% end %>
+      </div>
     <h2>Validées</h2>
-    <div class="orders-validées">
-      <% @sales.each do |sale| %>
-        <%= render "shared/product_card" %>
-      <% end %>
+     <div class="cards">
+        <% @sales.select { |sale| sale.progress == "confirmed" }.each do |sale| %>
+          <div class="card-pellet-style">
+            <%= render 'products/card_product', product: sale.product %>
+            <br>
+            <%= render 'sales/card_sale_footer', sale: sale %>
+          </div>
+        <% end %>
+      </div>
     </div>
-
     <h2>Livrées</h2>
-    <div class="orders-livrées">
-      <% @sales.each do |sale| %>
-        <%= render "shared/product_card" %>
-      <% end %>
+      <div class="cards">
+        <% @sales.select { |sale| sale.progress == "done" }.each do |sale| %>
+          <div class="card-pellet-style">
+            <%= render 'products/card_product', product: sale.product %>
+            <br>
+            <%= render 'sales/card_sale_footer', sale: sale %>
+          </div>
+        <% end %>
+      </div>
     </div>
-
     <h2>Annulées</h2>
-    <div class="orders-annulées">
-      <% @sales.each do |sale| %>
-        <%= render "shared/product_card" %>
-      <% end %>
-    </div>
-
-    <% unless @sales.empty? %>
+    <div class="cards">
+        <% @sales.select { |sale| sale.progress == "cancel" }.each do |sale| %>
+          <div class="card-pellet-style">
+            <%= render 'products/card_product', product: sale.product %>
+            <br>
+            <%= render 'sales/card_sale_footer', sale: sale %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+   <% unless @sales.empty? %>
       <div class ="map-wrapper">
         <div class="geo-map"
           data-controller="map"

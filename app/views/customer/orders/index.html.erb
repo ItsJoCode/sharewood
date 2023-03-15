@@ -5,28 +5,47 @@
 </div>
 <div class="container">
   <div class="orders-state">
-    <%# <div class="orders-encours"> %>
     <h2>En cours</h2>
-    <div class="cards">
-      <% @orders.each do |order| %>
-        <div class="card-pellet-style">
-          <%= render 'products/card_product', product: order.sale.product %>
-          <br>
-          <%= render 'sales/card_sale_footer', sale: order.sale %>
-        </div>
-      <% end %>
-    </div>
+      <div class="cards">
+        <% @orders.select { |order| order.sale.progress == "in_progress" }.each do |order| %>
+          <div class="card-pellet-style">
+            <%= render 'products/card_product', product: order.sale.product %>
+            <br>
+            <%= render 'sales/card_sale_footer', sale: order.sale %>
+          </div>
+        <% end %>
+      </div>
     <h2>Validées</h2>
-    <div class="orders-validées">
-      <%= render "shared/product_card" %>
+     <div class="cards">
+        <% @orders.select { |order| order.sale.progress == "confirmed" }.each do |order| %>
+          <div class="card-pellet-style">
+            <%= render 'products/card_product', product: order.sale.product %>
+            <br>
+            <%= render 'sales/card_sale_footer', sale: order.sale %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <h2>Livrées</h2>
-    <div class="orders-livrées">
-      <%= render "shared/product_card" %>
+      <div class="cards">
+        <% @orders.select { |order| order.sale.progress == "done" }.each do |order| %>
+          <div class="card-pellet-style">
+            <%= render 'products/card_product', product: order.sale.product %>
+            <br>
+            <%= render 'sales/card_sale_footer', sale: order.sale %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <h2>Annulées</h2>
-    <div class="orders-annulées">
-      <%= render "shared/product_card" %>
-    </div>
+    <div class="cards">
+        <% @orders.select { |order| order.sale.progress == "cancel" }.each do |order| %>
+          <div class="card-pellet-style">
+            <%= render 'products/card_product', product: order.sale.product %>
+            <br>
+            <%= render 'sales/card_sale_footer', sale: order.sale %>
+          </div>
+        <% end %>
+      </div>
   </div>
 </div>

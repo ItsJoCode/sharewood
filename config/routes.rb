@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'notifications/new'
+  get 'notifications/create'
+  get 'notifications/delete'
   get 'reviews/index'
   get 'reviews/show'
   get 'reviews/create'
