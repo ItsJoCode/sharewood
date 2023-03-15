@@ -22,9 +22,6 @@
         <% if user_signed_in? %>
           <% if current_user.customer? %>
             <li>
-              <%# <%= link_to '<i class="fa-solid fa-magnifying-glass"></i> Rechercher'.html_safe, customer_sales_path, class: "nav-link" %>
-            </li>
-            <li>
               <%= link_to '<i class="fa-solid fa-bag-shopping"></i> Mes Commandes'.html_safe, customer_orders_path, class: "nav-link" %>
             </li>
             <li>
@@ -32,10 +29,10 @@
             </li>
           <% else %>
             <li>
-              <%# <%= link_to '<i class="fa-solid fa-magnifying-glass"></i> Rechercher'.html_safe, sales_path, class: "nav-link" %>
+              <%= link_to '<i class="fa-solid fa-circle-plus"></i> Ajouter un produit'.html_safe, new_owner_product_path, class: "nav-link" %>
             </li>
             <li>
-              <%= link_to '<i class="fa-solid fa-circle-plus"></i> Ajouter un produit'.html_safe, new_owner_product_path, class: "nav-link" %>
+              <%= link_to '<i class="fa-solid fa-layer-group"></i> Mes Produits'.html_safe, owner_products_path, class: "nav-link" %>
             </li>
             <li>
               <%= link_to '<i class="fa-solid fa-sack-dollar"></i> Mes Ventes'.html_safe, owner_sales_path, class: "nav-link" %>
@@ -51,12 +48,9 @@
               <%= image_tag "avatar.png", class: "avatar dropdown-toggle mx-2", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Avatar", "#", class: "dropdown-item" %>
-              <% if current_user.owner? %>
-                <%= link_to "Mes Produits", owner_products_path, class: "dropdown-item" %>
-              <% end %>
-              <%= link_to "Parametres", "#", class: "dropdown-item" %>
-              <%= link_to "Deconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to '<i class="fa-solid fa-circle-user"></i> Changer son avatar'.html_safe, "#", class: "dropdown-item" %>
+              <%= link_to '<i class="fa-solid fa-gear"></i> Parametres'.html_safe, "#", class: "dropdown-item" %>
+              <%= link_to '<i class="fa-solid fa-handshake"></i> Se déconnecter'.html_safe, destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
