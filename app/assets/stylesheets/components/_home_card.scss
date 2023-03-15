@@ -2,10 +2,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 0px;
+}
 
+.card-pellet, .card-pellet-style {
   a {
     text-decoration: none;
-    color: black
+    color: black;
+    opacity: .5;
   }
 }
 
@@ -72,7 +75,7 @@
     margin-bottom: 8px;
   }
 
-  .card-descriptif {
+  .card-descript {
     margin-top: 0;
     text-align: center;
     // justify-content: center;

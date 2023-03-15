@@ -6,8 +6,13 @@
   </div>
 </div>
 <div class="card-content">
-  <p class="card-title"><%= product.brand %></p>
-  <p class="card-descriptif"><%= product.description %></p>
+  <p class="card-title">
+    <%= product.brand %>
+    <a data-bs-toggle="collapse" href="#collapsDescription" role="button" aria-expanded="false" aria-controls="collapsDescription">
+        <i class="fa-solid fa-circle-info"></i>
+    </a>
+  </p>
+  <p id="collapsDescription" class="collapse card-descript"><%= product.description %></p>
 </div>
 
 
