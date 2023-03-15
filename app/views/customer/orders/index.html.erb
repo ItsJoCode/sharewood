@@ -8,43 +8,51 @@
     <h2>En cours</h2>
       <div class="cards">
         <% @orders.select { |order| order.sale.progress == "in_progress" }.each do |order| %>
-          <div class="card-pellet-style">
-            <%= render 'products/card_product', product: order.sale.product %>
-            <br>
-            <%= render 'sales/card_sale_footer', sale: order.sale %>
-          </div>
+          <%= link_to customer_order_path(order), class:"text-reset text-decoration-none" do %>
+            <div class="card-pellet-style">
+              <%= render 'products/card_product', product: order.sale.product %>
+              <br>
+              <%= render 'sales/card_sale_footer', sale: order.sale %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     <h2>Validées</h2>
      <div class="cards">
         <% @orders.select { |order| order.sale.progress == "confirmed" }.each do |order| %>
+        <%= link_to customer_order_path(order), class:"text-reset text-decoration-none" do %>
           <div class="card-pellet-style">
             <%= render 'products/card_product', product: order.sale.product %>
             <br>
             <%= render 'sales/card_sale_footer', sale: order.sale %>
           </div>
+          <% end %>
         <% end %>
       </div>
     </div>
     <h2>Livrées</h2>
       <div class="cards">
         <% @orders.select { |order| order.sale.progress == "done" }.each do |order| %>
+        <%= link_to customer_order_path(order), class:"text-reset text-decoration-none" do %>
           <div class="card-pellet-style">
             <%= render 'products/card_product', product: order.sale.product %>
             <br>
             <%= render 'sales/card_sale_footer', sale: order.sale %>
           </div>
+          <% end %>
         <% end %>
       </div>
     </div>
     <h2>Annulées</h2>
     <div class="cards">
         <% @orders.select { |order| order.sale.progress == "cancel" }.each do |order| %>
+        <%= link_to customer_order_path(order), class:"text-reset text-decoration-none" do %>
           <div class="card-pellet-style">
             <%= render 'products/card_product', product: order.sale.product %>
             <br>
             <%= render 'sales/card_sale_footer', sale: order.sale %>
           </div>
+          <% end %>
         <% end %>
       </div>
   </div>
