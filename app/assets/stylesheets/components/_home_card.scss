@@ -1,14 +1,11 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 0px;
-}
+  grid-gap: 16px;
 
-.card-pellet, .card-pellet-style {
   a {
     text-decoration: none;
     color: black;
-    opacity: .5;
   }
 }
 
@@ -26,6 +23,12 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
     transform: scale(1.05);
   }
+
+  i {
+    text-decoration: none;
+    color: black;
+    opacity: .5;
+  }
 }
 
 .card-pellet-style {
@@ -36,6 +39,12 @@
   overflow: hidden;
   margin-bottom: 20px;
   background-color: #fff;
+
+  i {
+    text-decoration: none;
+    color: black;
+    opacity: .5;
+  }
 }
 
 .card-image {
