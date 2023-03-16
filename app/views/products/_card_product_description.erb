@@ -1,6 +1,6 @@
 <% if @sale %>
     <div class="order-draw" data-range-slider-target="draw">
-
+      <!-- Acheteurs déjà positionnés -->
       <% @sale.orders.each do | order | %>
         <% order.capacity.times do %>
           <div class="order-draw-avatar">
@@ -12,7 +12,7 @@
           </div>
         <% end %>
       <% end %>
-
+      <!-- Restant -->
       <% (@sale.sale_capacity - @sale.current_capacity.to_i).times do %>
         <div class="order-draw-circle"><%= content_tag :i, '', class: 'fa-regular fa-circle' %></div>
       <% end %>

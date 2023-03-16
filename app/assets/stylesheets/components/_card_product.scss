@@ -137,7 +137,7 @@
 .order-draw {
   height: 400px;
   display: grid;
-  grid-template-columns: repeat(20, 1fr);
+  grid-template-columns: repeat(#{$col-num-circle}, 1fr);
   justify-items: center;
   border: 1px solid #ccc;
   border-radius: #{$card-radius};
