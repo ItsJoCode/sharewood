@@ -10,6 +10,7 @@
 }
 
 .card-pellet {
+  position: relative;
   width: 300px;
   border: 1px solid #ccc;
   border-radius: #{$card-radius};

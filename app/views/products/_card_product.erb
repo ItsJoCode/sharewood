@@ -1,18 +1,42 @@
-<div class="card-image">
+<div class="card-image" data-controller="bookmark-sale">
   <% if product.photo.attached? %>
     <%= cl_image_tag product.photo.key %>
   <% else %>
     <%= image_tag "pellet.png" %>
   <% end %>
+
   <div class="card-eco-score">
     <%= '<i class="fa-solid fa-leaf"></i>'.html_safe * product.eco_score %>
     <%= '<i class="fa-solid fa-leaf" style="color: #e9f5db"></i>'.html_safe * (3 - product.eco_score) %>
   </div>
+
+  <% if user_signed_in? && current_user.customer? %>
+    <div class="fav">
+      <% bkmk = @bookmarks.where(sale_id: sale.id).empty? ? "regular" : "solid" %>
+      <% if @bookmarks.where(sale_id: sale.id).empty? %>
+        <%= simple_form_for :bookmark, url: bookmarks_path, method: :post, data: { "bookmark-sale-target": "formheart" } do |f| %>
+          <%= f.input :sale_id, as: :hidden, input_html: { value: sale.id } %>
+          <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+        <% end %>
+      <% else %>
+        <%= simple_form_for :bookmark, url: bookmark_path(@bookmarks.find_by(sale: sale)), method: :delete, data: { "bookmark-sale-target": "formheart", turbo_method: :delete } do |f| %>
+          <%= f.input :sale_id, as: :hidden, input_html: { value: sale.id } %>
+          <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+        <% end %>
+      <% end %>
+      <i class="fa-<%= bkmk %> fa-heart" data-action="click->bookmark-sale#bookmarked" data-bookmark-sale-target="heart"></i>
+    </div>
+  <% end %>
+
 </div>
 <div class="card-content">
   <p class="card-title">
-    <%= product.brand %>
-    <a data-bs-toggle="collapse" href="#collapsDescription" role="button" aria-expanded="false" aria-controls="collapsDescription">
+    <% if local_assigns[:path] %>
+      <%= link_to product.brand, path, class: "stretched-link" %>
+    <% else %>
+      <%= product.brand %>
+    <% end %>
+    <a class="info-description" data-bs-toggle="collapse" href="#collapsDescription" role="button" aria-expanded="false" aria-controls="collapsDescription">
         <i class="fa-solid fa-circle-info"></i>
     </a>
   </p>

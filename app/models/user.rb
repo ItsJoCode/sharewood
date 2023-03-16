@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :products
   has_many :orders
+  has_many :sales, through: :orders
   has_one_attached :photo
 
   devise :database_authenticatable, :registerable,
@@ -27,6 +28,15 @@ class User < ApplicationRecord
     elsif self.customer?
       # Sale.all.near(self, 20)
       Sale.where(progress: :in_progress).near(self, 20)
+    end
+  end
+
+  def near_sales_for(sales)
+    if self.owner?
+      #Sale.where(product_id: self.products).near(self, 30)
+    elsif self.customer?
+      # Sale.all.near(self, 20)
+     sales.in_progress.near(self, 20)
     end
   end
 

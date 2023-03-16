@@ -13,28 +13,22 @@
         <% if user_signed_in? %>
           <% if current_user.customer? %>
               <div class="card-pellet">
-                <%= link_to customer_sale_path(sale) do %>
-                  <%= render 'products/card_product', product: sale.product %>
+                  <%= render 'products/card_product', product: sale.product, sale: sale, path: customer_sale_path(sale)  %>
                   <br>
                   <%= render 'sales/card_sale_footer', sale: sale %>
-                <% end %>
               </div>
           <% elsif current_user.owner? %>
             <div class="card-pellet">
-              <%= link_to owner_sale_path(sale) do %>
-                <%= render 'products/card_product', product: sale.product %>
+                <%= render 'products/card_product', product: sale.product, link: owner_sale_path(sale) %>
                 <br>
                 <%= render 'sales/card_sale_footer', sale: sale %>
-              <% end %>
             </div>
           <% end %>
         <% else %>
           <div class="card-pellet">
-            <%= link_to sale_path(sale) do %>
-              <%= render 'products/card_product', product: sale.product %>
+              <%= render 'products/card_product', product: sale.product, link: sale_path(sale) %>
               <br>
               <%= render 'sales/card_sale_footer', sale: sale %>
-            <% end %>
           </div>
         <% end %>
       <% end %>
