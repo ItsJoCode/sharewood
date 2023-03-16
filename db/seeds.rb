@@ -532,7 +532,7 @@ ecowood = Product.new(
   weight: 15,
   eco_score: 2,
   user_id: jonathan.id,
-  brand: " Ecowood"
+  brand: "Ecowood"
 )
 ecowood.photo.attach(io: file, filename: "#{ecowood.brand}.png", content_type: "image/png")
 ecowood.save!
@@ -547,7 +547,7 @@ biowood = Product.new(
   weight: 15,
   eco_score: 3,
   user_id: ronan.id,
-  brand: " Biowood"
+  brand: "Biowood"
 )
 biowood.photo.attach(io: file, filename: "#{biowood.brand}.png", content_type: "image/png")
 biowood.save!
@@ -562,7 +562,7 @@ naturepellets = Product.new(
   weight: 15,
   eco_score: 2,
   user_id: ronan.id,
-  brand: " Nature Pellets"
+  brand: "Nature Pellets"
 )
 naturepellets.photo.attach(io: file, filename: "#{naturepellets.brand}.png", content_type: "image/png")
 naturepellets.save!
@@ -607,7 +607,7 @@ granulco = Product.new(
   weight: 15,
   eco_score: 3,
   user_id: florent.id,
-  brand: " Granulco"
+  brand: "Granulco"
 )
 granulco.photo.attach(io: file, filename: "#{granulco.brand}.png", content_type: "image/png")
 granulco.save!
@@ -622,7 +622,7 @@ easypellet = Product.new(
   weight: 15,
   eco_score: 2,
   user_id: lucas.id,
-  brand: " EasyPellet"
+  brand: "EasyPellet"
 )
 easypellet.photo.attach(io: file, filename: "#{easypellet.brand}.png", content_type: "image/png")
 easypellet.save!
@@ -637,7 +637,7 @@ piveteau = Product.new(
   weight: 15,
   eco_score: 3,
   user_id: lucas.id,
-  brand: " Piveteau"
+  brand: "Piveteau"
 )
 piveteau.photo.attach(io: file, filename: "#{piveteau.brand}.png", content_type: "image/png")
 piveteau.save!
@@ -843,12 +843,12 @@ puts "sale 3f : #{biowood.name} pour #{ronan.first_name} !!!"
 
 salequatre = Sale.new(
   address: addr[6],
-  sale_capacity: 200,
+  sale_capacity: 100,
   end_date: Date.today + 20,
   price_reduction: 10,
   progress: 0,
   product_id: biowood.id,
-  current_capacity: 140.0
+  current_capacity: 70.0
 )
 salequatre.save!
 puts "sale 4f : #{biowood.name} pour #{ronan.first_name} !!!"
@@ -934,7 +934,7 @@ puts '....... Sales finished!'
 puts "Creating some orders ..."
 
 orderone = Order.new(
-  capacity: 80,
+  capacity: 30,
   sale_id: saletrois.id,
   user_id: joz.id
 )
@@ -942,7 +942,7 @@ orderone.save!
 puts "mais création d'une order pour #{joz.first_name} !!!"
 
 ordertwo = Order.new(
-  capacity: 40,
+  capacity: 20,
   sale_id: saletrois.id,
   user_id: valentine.id
 )
@@ -950,12 +950,12 @@ ordertwo.save!
 puts "mais création d'une order pour #{valentine.first_name} !!!"
 
 orderthree = Order.new(
-  capacity: 80,
+  capacity: 20,
   sale_id: saletrois.id,
-  user_id: rayane.id
+  user_id: julie.id
 )
 orderthree.save!
-puts "mais création d'une order pour #{rayane.first_name} !!!"
+puts "mais création d'une order pour #{julie.first_name} !!!"
 
 orderfour = Order.new(
   capacity: 60,
@@ -976,10 +976,10 @@ puts "mais création d'une order pour #{valentine.first_name} !!!"
 ordersix = Order.new(
   capacity: 40,
   sale_id: salequatre.id,
-  user_id: rayane.id
+  user_id: julie.id
 )
 ordersix.save!
-puts "mais création d'une order pour #{rayane.first_name} !!!"
+puts "mais création d'une order pour #{julie.first_name} !!!"
 
 ################################
 #---------- Reviews ----------#
@@ -1014,35 +1014,35 @@ reviewthree.save!
 puts "Creating some creators ..."
 
 creator = Creator.new(
-  name: antho.first_name,
+  name: anthony.first_name,
   description: "Après avoir travaillé pendant plusieurs années en tant que commercial et entrepreneur, j'ai décidé de me lancer dans le développement web en suivant la formation du Wagon.",
   photo_url: "https://ca.slack-edge.com/T02NE0241-U04K2D8070B-3c6ce5975412-512"
 )
 creator.save!
-puts "créateur : #{antho.first_name} ok !!!"
+puts "créateur : #{anthony.first_name} ok !!!"
 
 creator = Creator.new(
-  name: jo.first_name,
+  name: jonathan.first_name,
   description: "I'm a software engineer, i worked two years in aeronautics domain. Today, I want to learn some modern technologies in web development.",
   photo_url: "https://avatars.githubusercontent.com/u/122153323?v=4"
 )
 creator.save!
-puts "créateur : #{jo.first_name} ok !!!"
+puts "créateur : #{jonathan.first_name} ok !!!"
 
 creator = Creator.new(
-  name: ro.first_name,
+  name: ronan.first_name,
   description: "Experienced in digital and audiovisual project management and video production. I decided to embark on learning web development in order to be able to supervise teams in tech companies.",
   photo_url: "https://ca.slack-edge.com/T02NE0241-U04K4VAV97E-726d7ba7c785-512"
 )
 creator.save!
-puts "créateur : #{ro.first_name} ok !!!"
+puts "créateur : #{ronan.first_name} ok !!!"
 
 creator = Creator.new(
-  name: flo.first_name,
+  name: florent.first_name,
   description: "Experienced audiovisual and IT professional with strong technical skills in streaming, video production, and audio-visual installations. I am a self-motivated and creative person with a strong sense of responsibility and a passion for technology.",
   photo_url: "https://ca.slack-edge.com/T02NE0241-U04JWALJ3AA-fe09f00b5bb5-512"
 )
 creator.save!
-puts "créateur : #{flo.first_name} ok !!!"
+puts "créateur : #{florent.first_name} ok !!!"
 
 puts '....... Creators finished!'
