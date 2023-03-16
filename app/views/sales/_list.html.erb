@@ -21,7 +21,7 @@
               </div>
           <% elsif current_user.owner? %>
             <div class="card-pellet">
-              <%= link_to owner_sale_path(sale) do %>
+              <%= link_to sale_path(sale) do %>
                 <%= render 'products/card_product', product: sale.product %>
                 <br>
                 <%= render 'sales/card_sale_footer', sale: sale %>
