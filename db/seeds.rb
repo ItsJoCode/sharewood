@@ -934,7 +934,7 @@ puts '....... Sales finished!'
 puts "Creating some orders ..."
 
 orderone = Order.new(
-  capacity: 30,
+  capacity: 100,
   sale_id: saletrois.id,
   user_id: joz.id
 )
@@ -942,7 +942,7 @@ orderone.save!
 puts "mais création d'une order pour #{joz.first_name} !!!"
 
 ordertwo = Order.new(
-  capacity: 20,
+  capacity: 50,
   sale_id: saletrois.id,
   user_id: valentine.id
 )
@@ -950,7 +950,7 @@ ordertwo.save!
 puts "mais création d'une order pour #{valentine.first_name} !!!"
 
 orderthree = Order.new(
-  capacity: 20,
+  capacity: 50,
   sale_id: saletrois.id,
   user_id: julie.id
 )
@@ -958,7 +958,7 @@ orderthree.save!
 puts "mais création d'une order pour #{julie.first_name} !!!"
 
 orderfour = Order.new(
-  capacity: 60,
+  capacity: 30,
   sale_id: salequatre.id,
   user_id: joz.id
 )
@@ -966,7 +966,7 @@ orderfour.save!
 puts "mais création d'une order pour #{joz.first_name} !!!"
 
 orderfive = Order.new(
-  capacity: 40,
+  capacity: 20,
   sale_id: salequatre.id,
   user_id: valentine.id
 )
@@ -974,7 +974,7 @@ orderfive.save!
 puts "mais création d'une order pour #{valentine.first_name} !!!"
 
 ordersix = Order.new(
-  capacity: 40,
+  capacity: 20,
   sale_id: salequatre.id,
   user_id: julie.id
 )
