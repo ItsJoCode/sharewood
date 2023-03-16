@@ -29,4 +29,8 @@ class Customer::SalesController < ApplicationController
   def sale_params
     params.require(:sale).permit(:address, :sale_capacity, :end_date, :price_reduction, :progress)
   end
+
+
+
+
 end
