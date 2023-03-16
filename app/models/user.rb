@@ -35,12 +35,12 @@ class User < ApplicationRecord
     end
   end
 
-  def near_sales_for(sales)
+  def near_sales_for(my_sales)
     if self.owner?
-      #Sale.where(product_id: self.products).near(self, 30)
+      Sale.where(product_id: self.products).near(self, 30)
     elsif self.customer?
       # Sale.all.near(self, 20)
-     sales.in_progress.near(self, 20)
+      my_sales.in_progress.near(self, 30)
     end
   end
 
