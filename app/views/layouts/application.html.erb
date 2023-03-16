@@ -24,11 +24,11 @@
   </head>
 
   <body data-controller="animation">
-  <%= render "shared/navbar" %>
-  <div class="main-container <%= 'forest-background' if current_page?('/creators') %>">
-    <%= yield %>
-  </div>
-  <%= render "shared/flashes" %>
-  <%= render "shared/footer" %>
+    <%= render "shared/navbar" %>
+    <div class="main-container <%= 'forest-background' if current_page?('/creators') %>">
+      <%= yield %>
+    </div>
+    <%= render "shared/flashes" %>
+    <%= render "shared/footer" %>
   </body>
 </html>

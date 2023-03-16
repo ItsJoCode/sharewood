@@ -3,10 +3,46 @@
   visibility: hidden;
 }
 
-.navbar,
-.card,
-.slidebar,
-.table,
-.countdown_sale {
-  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+.navbar-animation, .card-animation, .slidebar-animation, .table-animation, .countdown-animation, .banner-animation {
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.card-animation {
+  transform: translateX(-100%);
+}
+
+.card-animation.visible {
+  transform: translateX(0);
+}
+
+.slidebar-animation {
+  transform: translateY(100%);
+}
+
+.countdown-animation {
+  transform: translateY(100%);
+}
+
+.slidebar-animation.visible {
+  transform: translateY(0);
+}
+
+.countdown-animation.visible {
+  transform: translateY(0);
+}
+
+.table-animation {
+  transform: translateX(100%);
+}
+
+.table-animation.visible {
+  transform: translateX(0);
+}
+
+.banner-animation {
+  transform: translateY(-100%);
+}
+
+.banner-animation.visible {
+  transform: translateY(0);
 }
