@@ -85,3 +85,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Add qr code generator
+gem "rqrcode"
