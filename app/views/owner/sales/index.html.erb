@@ -6,6 +6,7 @@
 <div class="container">
   <div class="sales-state">
     <h2>En cours</h2>
+      <hr>
       <div class="cards">
         <% @sales.select { |sale| sale.in_progress? }.each do |sale| %>
           <div class="card-pellet-style">
@@ -18,6 +19,7 @@
         <% end %>
       </div>
     <h2>Validées</h2>
+      <hr>
      <div class="cards">
         <% @sales.select { |sale| sale.confirmed? }.each do |sale| %>
           <div class="card-pellet-style">
@@ -30,6 +32,7 @@
         <% end %>
       </div>
     <h2>Livrées</h2>
+      <hr>
       <div class="cards">
         <% @sales.select { |sale| sale.done? }.each do |sale| %>
           <div class="card-pellet-style">
@@ -42,6 +45,7 @@
         <% end %>
       </div>
     <h2>Annulées</h2>
+      <hr>
       <div class="cards">
         <% @sales.select { |sale| sale.cancel? }.each do |sale| %>
           <div class="card-pellet-style">
@@ -54,6 +58,7 @@
         <% end %>
       </div>
   </div>
+  <!--
   <% unless @sales.empty? %>
     <div class ="map-wrapper">
       <div class="geo-map"
@@ -63,4 +68,5 @@
       </div>
     </div>
   <% end %>
+  -->
 </div>
