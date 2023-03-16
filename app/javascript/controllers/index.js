@@ -7,6 +7,9 @@ import { application } from "./application"
 import AddressAutocompleteController from "./address_autocomplete_controller"
 application.register("address-autocomplete", AddressAutocompleteController)
 
+import AnimationController from "./animation_controller"
+application.register("animation", AnimationController)
+
 import CountdownController from "./countdown_controller"
 application.register("countdown", CountdownController)
 
@@ -18,6 +21,9 @@ application.register("map", MapController)
 
 import ProgressBarController from "./progress_bar_controller"
 application.register("progress-bar", ProgressBarController)
+
+import QrCodeController from "./qr_code_controller"
+application.register("qr-code", QrCodeController)
 
 import RangeSliderController from "./range_slider_controller"
 application.register("range-slider", RangeSliderController)

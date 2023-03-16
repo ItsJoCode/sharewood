@@ -15,7 +15,7 @@ class Sale < ApplicationRecord
   pg_search_scope :global_search,
     against: %i[address end_date],
     associated_against: {
-      product: [:brand]
+      product: [:brand, :qr_code]
     },
     using: {
       tsearch: { prefix: true }
@@ -45,22 +45,4 @@ class Sale < ApplicationRecord
     end
   end
 
-  private
-
-  # def create_notification
-  #   raise
-  #   if self.progress == "confirmed"
-  #     Notification.create!(content: "Une de vos ventes vient d'être validée", sale_id: self.id)
-  #   elsif self.progress == "done"
-  #     Notification.create!(content: "Une de vos ventes est en livraison", sale_id: self.id)
-  #   elsif self.progress == "cancel"
-  #     Notification.create!(content: "Une de vos ventes a été annulée", sale_id: self.id)
-  #   elsif self.progress == "in_progress"
-  #     Notification.create!(content: "caca", sale_id: self.id)
-  #   end
-  # end
-
-  # def progress_changed?
-  #   self.in_progress?
-  # end
 end
