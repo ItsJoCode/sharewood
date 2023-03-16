@@ -22,7 +22,7 @@
       <% @orders.select { |order| order.sale.progress == "confirmed" }.each do |order| %>
         <div class="card-pellet-style">
           <%= link_to customer_order_path(order), class:"text-reset text-decoration-none" do %>
-            <%= render 'products/card_product', product: order.sale.product %>
+            <%= render 'products/card_product', product: order.sale.product  %>
             <br>
             <%= render 'sales/card_sale_footer', sale: order.sale %>
           <% end %>
@@ -34,7 +34,7 @@
         <% @orders.select { |order| order.sale.progress == "done" }.each do |order| %>
           <div class="card-pellet-style">
             <%= link_to customer_order_path(order), class:"text-reset text-decoration-none" do %>
-              <%= render 'products/card_product', product: order.sale.product %>
+              <%= render 'products/card_product', product: order.sale.product  %>
               <br>
               <%= render 'sales/card_sale_footer', sale: order.sale %>
             <% end %>
@@ -46,7 +46,7 @@
       <% @orders.select { |order| order.sale.progress == "cancel" }.each do |order| %>
         <div class="card-pellet-style">
           <%= link_to customer_order_path(order), class:"text-reset text-decoration-none" do %>
-            <%= render 'products/card_product', product: order.sale.product %>
+            <%= render 'products/card_product', product: order.sale.product  %>
             <br>
             <%= render 'sales/card_sale_footer', sale: order.sale %>
           <% end %>
