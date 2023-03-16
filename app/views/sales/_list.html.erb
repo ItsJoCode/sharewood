@@ -1,5 +1,5 @@
 <div id="list" class="sale-card" data-search-sales-target='list'>
-<div class="fullmap hiddenmap" data-search-sales-target='fullmap'>
+  <div class="fullmap hiddenmap" data-search-sales-target='fullmap'>
     <div id="map" class="geo-map"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
@@ -12,30 +12,30 @@
       <% if sale.in_progress? %>
         <% if user_signed_in? %>
           <% if current_user.customer? %>
-            <%= link_to customer_sale_path(sale) do %>
               <div class="card-pellet">
-                <%= render 'products/card_product', product: sale.product %>
-                <br>
-                <%= render 'sales/card_sale_footer', sale: sale %>
+                <%= link_to customer_sale_path(sale) do %>
+                  <%= render 'products/card_product', product: sale.product %>
+                  <br>
+                  <%= render 'sales/card_sale_footer', sale: sale %>
+                <% end %>
               </div>
-            <% end %>
           <% elsif current_user.owner? %>
-            <%= link_to owner_sale_path(sale) do %>
-              <div class="card-pellet">
+            <div class="card-pellet">
+              <%= link_to owner_sale_path(sale) do %>
                 <%= render 'products/card_product', product: sale.product %>
                 <br>
                 <%= render 'sales/card_sale_footer', sale: sale %>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           <% end %>
         <% else %>
-          <%= link_to sale_path(sale) do %>
-            <div class="card-pellet">
+          <div class="card-pellet">
+            <%= link_to sale_path(sale) do %>
               <%= render 'products/card_product', product: sale.product %>
               <br>
               <%= render 'sales/card_sale_footer', sale: sale %>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
     <% end %>

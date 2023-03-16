@@ -1,11 +1,11 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 0px;
+  grid-gap: 16px;
 
   a {
     text-decoration: none;
-    color: black
+    color: black;
   }
 }
 
@@ -32,6 +32,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   margin-bottom: 20px;
+  background-color: #fff;
 }
 
 .card-image {
@@ -71,13 +72,12 @@
     margin-bottom: 8px;
   }
 
-  .card-descriptif {
+  .card-descript {
     margin-top: 0;
     text-align: center;
-    // justify-content: center;
     opacity: .5;
     margin-bottom: 12px;
-    height: 100px;
+    // height: 100px;
   }
 
   .card-header {
@@ -117,6 +117,7 @@
     // background-color: #7bf1a8;
     background-color: #4CAF50;
     border-radius: 30px;
+    transition: all 2s ease-in-out;
   }
 }
 

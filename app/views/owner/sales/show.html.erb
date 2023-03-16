@@ -1,5 +1,9 @@
 <div class="card-bg">
-  <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= image_path "pellet.png" %>')"></div>
+  <% if @sale.product.photo.attached? %>
+    <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= cl_image_path @sale.product.photo.key %>')"></div>
+  <% else %>
+    <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= image_path "pellet.png" %>')"></div>
+  <% end %>
   <div class="card-wrapper" id="card-wrapper">
     <div class="card-pellet-style">
       <%= render 'products/card_product', product: @sale.product %>
@@ -7,7 +11,7 @@
       <%= render 'sales/card_sale_footer', sale: @sale %>
     </div>
     <%#= render "products/card_product_description", product: @sale.product %>
-    <div>
+    <div class="sale-submit">
       <% if @sale.confirmed? %>
         <%= simple_form_for([:owner, @sale]) do |f| %>
           <%= f.hidden_field :progress, as: :string, value: "done" %>
