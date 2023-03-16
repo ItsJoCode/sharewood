@@ -1,4 +1,4 @@
-<div class="container" data-controller="search-sales">
+<div class="container" data-controller="search-sales qr-code">
   <div class="search-container my-4">
     <%= form_with url: customer_sales_path, method: :get, html: {class: "d-flex", data:{search_sales_target: "form"}} do %>
       <%= text_field_tag :query,
@@ -7,13 +7,36 @@
         placeholder: "Rechercher...",
         data: {
                 search_sales_target: "input",
-                action: "keyup->search-sales#update"
+                action: "search-sales#update",
+                qr_code_target: "input"
               }
       %>
       <%= button_tag do %>
         <i class="fa fa-search"></i>
       <% end %>
     <% end %>
+    <div id="qr">
+    <button type="button" class="btn fa-solid fa-qrcode" data-bs-toggle="modal" data-bs-target="#exampleModal" data-action="click->qr-code#showScan">
+    </button>
+    </div>
   </div>
   <%= render 'sales/list', sales: @sales %>
+  <!-- Button trigger modal -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-qr-code-target="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">QR code scanner</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <video data-qr-code-target="scan"></video>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>

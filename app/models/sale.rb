@@ -11,7 +11,7 @@ class Sale < ApplicationRecord
   pg_search_scope :global_search,
     against: %i[address end_date],
     associated_against: {
-      product: [:brand]
+      product: [:brand, :qr_code]
     },
     using: {
       tsearch: { prefix: true }
