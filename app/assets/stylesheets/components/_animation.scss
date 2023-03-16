@@ -1,0 +1,12 @@
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.navbar,
+.card,
+.slidebar,
+.table,
+.countdown_sale {
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}

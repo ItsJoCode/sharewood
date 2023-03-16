@@ -23,7 +23,7 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
   </head>
 
-  <body>
+  <body data-controller="animation">
   <%= render "shared/navbar" %>
   <div class="main-container <%= 'forest-background' if current_page?('/creators') %>">
     <%= yield %>
