@@ -4,6 +4,7 @@ class User < ApplicationRecord
   ROLE = { customer: 0, owner: 1 }
 
   has_many :products
+  has_many :sales, through: :products
   has_many :orders
   has_one_attached :photo
 

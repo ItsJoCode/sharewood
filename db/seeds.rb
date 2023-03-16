@@ -1,5 +1,5 @@
 require "open-uri"
-
+Notification.destroy_all
 Creator.destroy_all
 Review.destroy_all
 Order.destroy_all

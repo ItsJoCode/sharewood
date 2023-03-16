@@ -1,5 +1,6 @@
 class Sale < ApplicationRecord
   include PgSearch::Model
+  include ActiveModel::Dirty
 
   belongs_to :product
   has_many :orders
@@ -7,6 +8,9 @@ class Sale < ApplicationRecord
 
   validates :address, :sale_capacity, :end_date, :price_reduction, :progress, presence: true
   enum :progress, { in_progress: 0, confirmed: 1, done: 2, cancel: 3 }
+
+  # after_update_commit :create_notification
+  # if: :progress_changed?
 
   pg_search_scope :global_search,
     against: %i[address end_date],
@@ -20,6 +24,9 @@ class Sale < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
+  # define_attribute_methods :progress
+
+
   def self.define_markers
     self.geocoded.map do |sale|
       {
@@ -32,6 +39,28 @@ class Sale < ApplicationRecord
 
   def update_sale_status
     rest_value = sale_capacity - current_capacity
-    confirmed! if rest_value.fdiv(sale_capacity) < 0.10 && end_date >= Time.now
+    if rest_value.fdiv(sale_capacity) < 0.10 && end_date >= Time.now
+      confirmed!
+      Notification.create!(content: "Une de vos ventes vient d'être validée", sale_id: self.id)
+    end
   end
+
+  private
+
+  # def create_notification
+  #   raise
+  #   if self.progress == "confirmed"
+  #     Notification.create!(content: "Une de vos ventes vient d'être validée", sale_id: self.id)
+  #   elsif self.progress == "done"
+  #     Notification.create!(content: "Une de vos ventes est en livraison", sale_id: self.id)
+  #   elsif self.progress == "cancel"
+  #     Notification.create!(content: "Une de vos ventes a été annulée", sale_id: self.id)
+  #   elsif self.progress == "in_progress"
+  #     Notification.create!(content: "caca", sale_id: self.id)
+  #   end
+  # end
+
+  # def progress_changed?
+  #   self.in_progress?
+  # end
 end

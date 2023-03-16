@@ -17,6 +17,7 @@ class Customer::SalesController < ApplicationController
 
   def show
     @order = Order.new
+
   end
 
   def set_sale
@@ -26,4 +27,8 @@ class Customer::SalesController < ApplicationController
   def sale_params
     params.require(:sale).permit(:address, :sale_capacity, :end_date, :price_reduction, :progress)
   end
+
+
+
+
 end
