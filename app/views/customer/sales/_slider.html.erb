@@ -1,4 +1,4 @@
-<div class="select-button">
+<div class="select-button slidebar-animation hidden" data-animation-target="slidebar">
   <div class="range-slider">
     <%= simple_form_for [:customer, @sale, @order] do |f| %>
       <%= f.input :capacity, as: :range, id: "capacity", label: "Sélectionnez la Quantité:", input_html: { min: (@sale.sale_capacity * 0.1), max: (@sale.sale_capacity - @sale.current_capacity.to_i), value: 2, data: { range_slider_target: 'input', action: 'range-slider#onInput'}}%>

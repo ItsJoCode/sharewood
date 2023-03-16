@@ -11,14 +11,26 @@
     </div>
   </div>
   <div class="container">
-    <div class="Avis">
-      <% @reviews.each do |review| %>
-        <div class="review">
-          <p><%= review.rating %> stars</p>
-          <p><%= review.content %></p>
-          <p>Posted by <%= review.order.user.first_name %></p>
-        </div>
-      <% end %>
+    <div class="sales-state">
+      <h2 style="width: 200px; margin-left: 0;">Ventes en cours</h2>
+      <div class="cards">
+        <% @product.sales.each do |sale| %>
+          <div class="card-pellet-style">
+            <%= render 'products/card_product', product: @product %>
+              <br>
+            <%= render 'sales/card_sale_footer', sale: sale %>
+          </div>
+        <% end %>
+      </div>
+      <div class="Avis">
+        <% @reviews.each do |review| %>
+          <div class="review">
+            <p><%= review.rating %> stars</p>
+            <p><%= review.content %></p>
+            <p>Posted by <%= review.order.user.first_name %></p>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="qr-code">
