@@ -6,15 +6,14 @@ class Owner::SalesController < ApplicationController
     # @markers = @sales.define_markers
     # @sales = Sale.all
     @sales = current_user.product_sales
-    @notifications = Notification.where(sale_id: owner_notifications)
+    # @notifications = Notification.where(sale_id: owner_notifications)
     # @sales = []
     # current_user.products.each { |product| @sales << product.sales }
     # @sales = @sales.flatten
   end
 
   def show
-    @notifications = Notification.where(sale_id: owner_notifications)
-
+    # @notifications = Notification.where(sale_id: owner_notifications)
   end
 
   def new
@@ -40,10 +39,11 @@ class Owner::SalesController < ApplicationController
 
   private
 
-  def owner_notifications
-    confirmed = current_user.sales.select {|sale| sale.progress == "confirmed"}
-    confirmed.pluck(:id)
-  end
+  # def owner_notifications
+  #   confirmed = current_user.sales.select {|sale| sale.progress == "confirmed"}
+  #   confirmed.pluck(:id)
+  # end
+
   def set_sale
     @sale = Sale.find(params[:id])
   end

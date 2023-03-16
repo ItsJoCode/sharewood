@@ -12,7 +12,7 @@ class SalesController < ApplicationController
     @sales = @sales.global_search(params[:query]) if params[:query].present?
     @markers = @sales.where(progress: :in_progress).define_markers unless current_user
     @markers = current_user.near_markers_for(@sales) if current_user
-    @notifications = Notification.where(sale_id: owner_notifications)
+    # @notifications = Notification.where(sale_id: owner_notifications)
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
@@ -26,11 +26,11 @@ class SalesController < ApplicationController
 
   private
 
-  def owner_notifications
-    return [] unless current_user
+  # def owner_notifications
+  #   return [] unless current_user
 
-    confirmed = current_user.sales.select {|sale| sale.progress == "confirmed"}
-    confirmed.pluck(:id)
-  end
+  #   confirmed = current_user.sales.select {|sale| sale.progress == "confirmed"}
+  #   confirmed.pluck(:id)
+  # end
 
 end

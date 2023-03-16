@@ -4,7 +4,9 @@ class User < ApplicationRecord
   ROLE = { customer: 0, owner: 1 }
 
   has_many :products
-  has_many :sales, through: :products
+  has_many :owner_sales, through: :products, class_name: 'Sale', source: :sales
+  has_many :owner_sales_confirmed, -> { confirmed }, through: :products, class_name: 'Sale', source: :sales
+  has_many :notifications, through: :owner_sales_confirmed
   has_many :orders
   has_many :sales, through: :orders
   has_many :bookmarks

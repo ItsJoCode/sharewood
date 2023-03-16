@@ -38,13 +38,13 @@
               <%= link_to '<i class="fa-solid fa-sack-dollar"></i> Mes Ventes'.html_safe, owner_sales_path, class: "nav-link" %>
             </li>
             <li>
-              <% if @notifications.any? %>
+              <% if current_user.notifications.any? %>
                 <%= link_to '<i class="fa-solid fa-bell strong-tilt-move-shake bell-color"></i> Notifications'.html_safe, "#", class: "nav-link avatar dropdown-toggle mx-2 notification-dropdown-link w-100 h-100 text-decoration-none ", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% else %>
                 <%= link_to '<i class="fa-solid fa-bell"></i> Notifications'.html_safe, "#", class: "nav-link avatar dropdown-toggle mx-2 notification-dropdown-link w-100 h-100 text-decoration-none", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <% @notifications.last(3).each do |notification| %>
+                <% current_user.notifications.last(3).each do |notification| %>
                   <%= render "shared/notification", notification: notification  %>
                 <% end %>
               </div>

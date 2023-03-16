@@ -5,6 +5,7 @@ class Sale < ApplicationRecord
   belongs_to :product
   has_many :orders
   has_many :bookmarks
+  has_many :notifications
   has_one_attached :photo
 
   validates :address, :sale_capacity, :end_date, :price_reduction, :progress, presence: true
