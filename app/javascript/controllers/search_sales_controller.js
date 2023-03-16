@@ -9,6 +9,7 @@ export default class extends Controller {
   }
 
   update() {
+    console.log("update")
     const hmap = this.fullmapTarget.classList.contains("hiddenmap")
     const url = `${this.formTarget.action}?query=${this.inputTarget.value}`
     fetch(url, {headers: {"Accept": "text/plain"}})

@@ -17,5 +17,5 @@
         <div class="order-draw-circle"><%= content_tag :i, '', class: 'fa-regular fa-circle' %></div>
       <% end %>
     </div>
-    <%= render 'countdown', product: @sale.product %>
+    <%= render 'customer/sales/countdown', product: @sale.product %>
 <% end %>
