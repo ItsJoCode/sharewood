@@ -1,9 +1,3 @@
-$card-radius: 15px;
-$card-box-shadow: 0 0 15px rgba(0,0,0,0.2);
-$card-padding: 16px;
-$size-circle: 30px;
-$color-circle: #3B5B50;
-
 .card-bg {
   position: relative;
   left: 0px;
@@ -143,7 +137,7 @@ $color-circle: #3B5B50;
 .order-draw {
   height: 400px;
   display: grid;
-  grid-template-columns: repeat(20, 1fr);
+  grid-template-columns: repeat(#{$col-num-circle}, 1fr);
   justify-items: center;
   border: 1px solid #ccc;
   border-radius: #{$card-radius};
@@ -191,4 +185,29 @@ $color-circle: #3B5B50;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+}
+
+
+.fav {
+  position: absolute;
+  z-index: 2;
+  right: 15px;
+  top: -5px;
+  cursor: pointer;
+
+  .fa-heart {
+    color: #fff;
+    padding: 4px;
+    font-size: 22px;
+  }
+
+  .fa-solid {
+    color: red;
+  }
+
+}
+
+.info-description {
+  position: relative;
+  z-index: 2;
 }

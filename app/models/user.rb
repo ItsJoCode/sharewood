@@ -4,7 +4,12 @@ class User < ApplicationRecord
   ROLE = { customer: 0, owner: 1 }
 
   has_many :products
+  has_many :owner_sales, through: :products, class_name: 'Sale', source: :sales
+  has_many :owner_sales_confirmed, -> { confirmed }, through: :products, class_name: 'Sale', source: :sales
+  has_many :notifications, through: :owner_sales_confirmed
   has_many :orders
+  has_many :sales, through: :orders
+  has_many :bookmarks
   has_one_attached :photo
 
   devise :database_authenticatable, :registerable,
@@ -30,6 +35,15 @@ class User < ApplicationRecord
     end
   end
 
+  def near_sales_for(my_sales)
+    if self.owner?
+      Sale.where(product_id: self.products).near(self, 30)
+    elsif self.customer?
+      # Sale.all.near(self, 20)
+      my_sales.in_progress.near(self, 30)
+    end
+  end
+
   def near_markers_for(my_sales)
     markers = my_sales.define_markers
     markers.unshift(
@@ -46,5 +60,9 @@ class User < ApplicationRecord
     sales = []
     products.each { |product| sales << product.sales }
     sales.flatten
+  end
+
+  def bookmark_for(sale)
+    self.bookmarks.find_by(sale:)
   end
 end

@@ -1,5 +1,5 @@
 require "open-uri"
-
+Notification.destroy_all
 Creator.destroy_all
 Review.destroy_all
 Order.destroy_all
@@ -103,7 +103,7 @@ crepito = Product.new(
   name: "Je suis CRÉPITO !",
   description: "Les granulés de bois compressés de notre sac de pellets sont la solution de chauffage idéale pour votre maison.",
   store_price: 7,
-  reference: 66_899_266,
+  qr_code: "66899266",
   weight: 15,
   eco_score: 3,
   user_id: jo.id,
@@ -116,7 +116,7 @@ woodstock = Product.new(
   name: "Je suis WOODSTOCK !",
   description: "Chauffez votre maison de manière responsable avec notre sac de pellets de haute qualité.",
   store_price: 8,
-  reference: 86_123_145,
+  qr_code: "86123145",
   weight: 15,
   eco_score: 2,
   user_id: antho.id,
@@ -129,7 +129,7 @@ pellematic = Product.new(
   name: "Je suis PELLEMATIC !",
   description: "Optez pour notre sac de pellets de qualité supérieure et découvrez une solution de chauffage respectueuse de l'environnement.",
   store_price: 3,
-  reference: 11_645,
+  qr_code: "11645",
   weight: 5,
   eco_score: 3,
   user_id: flo.id,

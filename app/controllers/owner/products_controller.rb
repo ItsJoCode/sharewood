@@ -7,13 +7,15 @@ class Owner::ProductsController < ApplicationController
 
   def show
     @reviews = Review.joins(order: { sale: :product }).where(products: { id: @product.id })
-    @qr_code = RQRCode::QRCode.new(@product.qr_code)
-    @svg = @qr_code.as_svg(
-      offset: 0,
-      color: '000',
-      shape_rendering: 'crispEdges',
-      standalone: true
-    )
+    if @product.qr_code?
+      @qr_code = RQRCode::QRCode.new(@product.qr_code)
+      @svg = @qr_code.as_svg(
+        offset: 0,
+        color: '000',
+        shape_rendering: 'crispEdges',
+        standalone: true
+      )
+    end
   end
 
   def new
@@ -37,6 +39,6 @@ class Owner::ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :store_price, :reference, :weight, :eco_score, :brand, :photo)
+    params.require(:product).permit(:name, :description, :store_price, :qr_code, :weight, :eco_score, :brand, :photo)
   end
 end

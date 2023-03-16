@@ -8,7 +8,7 @@
     <% if user_signed_in? %>
       <ul class="navbar-nav me-auto">
         <li class="nav-item welcome-user">
-          <%= link_to "Bienvenue <strong>#{current_user.first_name}</strong>".html_safe, customer_sales_path, class: "nav-link" %>
+          <%= link_to "Bienvenue <strong>#{current_user.first_name}</strong>".html_safe, sales_path, class: "nav-link" %>
         </li>
       </ul>
     <% end %>
@@ -25,7 +25,7 @@
               <%= link_to '<i class="fa-solid fa-bag-shopping"></i> Mes Commandes'.html_safe, customer_orders_path, class: "nav-link" %>
             </li>
             <li>
-              <%= link_to '<i class="fa-solid fa-bell"></i> Notifications'.html_safe, "#", class: "nav-link" %>
+             <%= link_to '<i class="fa-solid fa-bell"></i> Notifications'.html_safe, "#", class: "nav-link" %>
             </li>
           <% else %>
             <li>
@@ -38,9 +38,22 @@
               <%= link_to '<i class="fa-solid fa-sack-dollar"></i> Mes Ventes'.html_safe, owner_sales_path, class: "nav-link" %>
             </li>
             <li>
-              <%= link_to '<i class="fa-solid fa-bell"></i> Notifications'.html_safe, "#", class: "nav-link" %>
+              <% if current_user.notifications.any? %>
+                <%= link_to '<i class="fa-solid fa-bell strong-tilt-move-shake bell-color"></i> Notifications'.html_safe, "#", class: "nav-link avatar dropdown-toggle mx-2 notification-dropdown-link w-100 h-100 text-decoration-none ", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= link_to '<i class="fa-solid fa-bell"></i> Notifications'.html_safe, "#", class: "nav-link avatar dropdown-toggle mx-2 notification-dropdown-link w-100 h-100 text-decoration-none", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <% current_user.notifications.last(3).each do |notification| %>
+                  <%= render "shared/notification", notification: notification  %>
+                <% end %>
+              </div>
             </li>
           <% end %>
+
+
+
+
           <li class="nav-item dropdown">
             <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle mx-2", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
