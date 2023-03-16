@@ -7,7 +7,6 @@
   <div class="sales-state">
     <h2>En cours</h2>
       <div class="cards">
-
         <% @sales.select { |sale| sale.in_progress? }.each do |sale| %>
           <%= link_to owner_sale_path(sale), class:"text-reset text-decoration-none" do %>
             <div class="card-pellet-style">
@@ -43,10 +42,10 @@
         <% end %>
       </div>
     <h2>Annulées</h2>
-    <div class="cards">
+      <div class="cards">
         <% @sales.select { |sale| sale.cancel? }.each do |sale| %>
           <%= link_to owner_sale_path(sale), class:"text-reset text-decoration-none" do %>
-             <div class="card-pellet-style">
+            <div class="card-pellet-style">
             <%= render 'products/card_product', product: sale.product %>
             <br>
             <%= render 'sales/card_sale_footer', sale: sale %>
@@ -54,15 +53,14 @@
           <% end %>
         <% end %>
       </div>
-
   </div>
-   <% unless @sales.empty? %>
-      <div class ="map-wrapper">
-        <div class="geo-map"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
+  <% unless @sales.empty? %>
+    <div class ="map-wrapper">
+      <div class="geo-map"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-    <% end %>
+    </div>
+  <% end %>
 </div>
