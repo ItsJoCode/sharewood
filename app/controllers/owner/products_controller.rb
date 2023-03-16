@@ -39,6 +39,6 @@ class Owner::ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :store_price, :reference, :weight, :eco_score, :brand, :photo)
+    params.require(:product).permit(:name, :description, :store_price, :qr_code, :weight, :eco_score, :brand, :photo)
   end
 end
