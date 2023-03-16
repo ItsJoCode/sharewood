@@ -4,15 +4,13 @@ class Customer::SalesController < ApplicationController
   def index
     @bookmarks = Bookmark.where(user_id: current_user)
 
-    @sales = current_user.sales
-                         .includes(:bookmarks)
-                         .order("bookmarks.created_at")
+    @sales = Sale.includes(:bookmarks)
+                 .order("bookmarks.created_at")
 
     @sales = current_user.near_sales_for(@sales)
 
     @sales = @sales.global_search(params[:query]) if params[:query].present?
     @markers = current_user.near_markers_for(@sales)
-
     respond_to do |format|
       format.html # Follow regular flow of Rails
       format.text { render partial: "sales/list", locals: { sales: @sales }, formats: [:html] }

@@ -19,14 +19,14 @@
               </div>
           <% elsif current_user.owner? %>
             <div class="card-pellet">
-                <%= render 'products/card_product', product: sale.product, link: owner_sale_path(sale) %>
+                <%= render 'products/card_product', product: sale.product, path: owner_sale_path(sale) %>
                 <br>
                 <%= render 'sales/card_sale_footer', sale: sale %>
             </div>
           <% end %>
         <% else %>
           <div class="card-pellet">
-              <%= render 'products/card_product', product: sale.product, link: sale_path(sale) %>
+              <%= render 'products/card_product', product: sale.product, path: sale_path(sale) %>
               <br>
               <%= render 'sales/card_sale_footer', sale: sale %>
           </div>

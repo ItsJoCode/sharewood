@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :products
   has_many :orders
   has_many :sales, through: :orders
+  has_many :bookmarks
   has_one_attached :photo
 
   devise :database_authenticatable, :registerable,
@@ -56,5 +57,9 @@ class User < ApplicationRecord
     sales = []
     products.each { |product| sales << product.sales }
     sales.flatten
+  end
+
+  def bookmark_for(sale)
+    self.bookmarks.find_by(sale:)
   end
 end
