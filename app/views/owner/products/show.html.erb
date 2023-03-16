@@ -1,12 +1,24 @@
-<div class="container">
-  <%= link_to "Créer une vente", new_owner_product_sale_path(@product), class: "btn btn-primary mt-4" %>
-  <div class="Avis">
-    <% @reviews.each do |review| %>
-      <div class="review">
-        <p><%= review.rating %> stars</p>
-        <p><%= review.content %></p>
-        <p>Posted by <%= review.order.user.first_name %></p>
-      </div>
-    <% end %>
+<div class="card-bg">
+  <% if @product.photo.attached? %>
+    <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= cl_image_path @product.photo.key %>')"></div>
+  <% else %>
+    <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= image_path "pellet.png" %>')"></div>
+  <% end %>
+  <div class="card-wrapper" id="card-wrapper">
+    <div class="card-pellet-style">
+      <%= render 'products/card_product', product: @product %>
+      <%= link_to "Créer une vente", new_owner_product_sale_path(@product), class: " btn btn-outline-secondary btn-sale", style: "border-radius: 30px;" %>
+    </div>
+  </div>
+  <div class="container">
+    <div class="Avis">
+      <% @reviews.each do |review| %>
+        <div class="review">
+          <p><%= review.rating %> stars</p>
+          <p><%= review.content %></p>
+          <p>Posted by <%= review.order.user.first_name %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
