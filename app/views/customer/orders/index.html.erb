@@ -6,6 +6,7 @@
 <div class="container">
   <div class="orders-state">
     <h2>En cours</h2>
+      <hr>
       <div class="cards">
         <% @orders.select { |order| order.sale.progress == "in_progress" }.each do |order| %>
             <div class="card-pellet-style">
@@ -18,6 +19,7 @@
         <% end %>
       </div>
     <h2>Validées</h2>
+      <hr>
      <div class="cards">
       <% @orders.select { |order| order.sale.progress == "confirmed" }.each do |order| %>
         <div class="card-pellet-style">
@@ -30,6 +32,7 @@
       <% end %>
     </div>
     <h2>Livrées</h2>
+      <hr>
       <div class="cards">
         <% @orders.select { |order| order.sale.progress == "done" }.each do |order| %>
           <div class="card-pellet-style">
@@ -42,6 +45,7 @@
         <% end %>
       </div>
     <h2>Annulées</h2>
+      <hr>
     <div class="cards">
       <% @orders.select { |order| order.sale.progress == "cancel" }.each do |order| %>
         <div class="card-pellet-style">

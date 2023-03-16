@@ -11,13 +11,17 @@
       <%= render 'sales/card_sale_footer', sale: @sale %>
     </div>
     <%#= render "products/card_product_description", product: @sale.product %>
-    <div class="sale-submit">
+
+  </div>
+</div>
+
+<div class="sales-wrapper text-center">
+  <div class="sale-submit">
       <% if @sale.confirmed? %>
         <%= simple_form_for([:owner, @sale]) do |f| %>
           <%= f.hidden_field :progress, as: :string, value: "done" %>
-          <%= f.submit %>
+          <%= f.submit "Mettre en livraison", class: "btn btn-outline-secondary", style: "border-radius: 30px;" %>
         <% end %>
       <% end %>
     </div>
-  </div>
 </div>
