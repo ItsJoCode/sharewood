@@ -383,7 +383,7 @@ jonathan.photo.attach(io: file, filename: "#{jonathan.first_name}.jpg", content_
 jonathan.save!
 puts "#{jonathan.first_name} OK !!!"
 
-file = URI.open("https://res.cloudinary.com/dsjzngtmn/image/upload/v1/development/jp7wftiljvzporb0uqj8rlxkqh1m")
+file = URI.open("https://res.cloudinary.com/dsjzngtmn/image/upload/v1679046642/development/h88ojy01794kzd7q2sovd738um3e.jpg")
 anthony = User.new(
   first_name: "Anthony",
   last_name: "Gombert",
