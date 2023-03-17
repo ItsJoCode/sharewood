@@ -6,24 +6,30 @@
     </div>
     <%= render "card_product_description", product: @product %>
   </div>
-  <div class="container">
-    <% @reviews.each do |review| %>
-      <div class="review">
-      <p><%= cl_image_tag review.order.user.photo.key , class: "rounded-img" %>
-        Avis de <%= review.order.user.first_name %> - <% review.rating.times do %> <i class="fa-solid fa-star"></i><% end %><% (5 - review.rating).times do %><i class="far fa-star"></i><% end %> </p>
-        <p><%= review.content %></p>
+  <div class="sales-wrapper mt-5" style="width: 1320px;">
+    <div class="container">
+        <div class="current-sales">
+        <h2>Ventes en cours</h2>
+        <hr>
+        <div class="cards">
+        <% @product.sales.each do |sale|  %>
+          <div class="card-pellet-style">
+            <%= render 'products/card_product', product: @product %>
+            <br>
+            <%= render 'sales/card_sale_footer', sale: sale %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
-
-  <div class="current-sales">
-    <h2>Ventes en cours</h2>
-    <div class="cards">
-    <% @product.sales.each do |sale|  %>
-      <div class="card-pellet-style">
-        <%= render 'products/card_product', product: @product %>
-        <br>
-        <%= render 'sales/card_sale_footer', sale: sale %>
+      <div class="mt-5">
+        <h2 class="text-start">Avis</h2>
+        <hr>
+        <% @reviews.each do |review| %>
+          <div class="review">
+          <p><%= cl_image_tag review.order.user.photo.key , class: "rounded-img" %>
+            Avis de <%= review.order.user.first_name %> - <% review.rating.times do %> <i class="fa-solid fa-star"></i><% end %><% (5 - review.rating).times do %><i class="far fa-star"></i><% end %> </p>
+            <p><%= review.content %></p>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>

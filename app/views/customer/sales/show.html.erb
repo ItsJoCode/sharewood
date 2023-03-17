@@ -9,7 +9,7 @@
   <div class="card-wrapper" id="card-wrapper">
     <div>
       <div class="card-pellet-style card-animation hidden" data-animation-target="card">
-        <%= render 'products/card_product', product: @sale.product, sale: @sale %>
+        <%= render 'products/card_product', product: @sale.product, sale: @sale, path: product_path(@sale.product) %>
         <%= render 'sales/card_sale_footer', sale: @sale %>
 
       </div>
