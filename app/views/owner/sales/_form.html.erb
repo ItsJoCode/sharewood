@@ -1,10 +1,10 @@
-<div class="row p-5">
+<div class="row p-5 my-5">
     <div class="log col-12 col-sm-4 mx-auto p-4">
-      <h2 class="text-center">Quel est votre vente?</h2>
+      <h2 class="text-center">Détails de la vente</h2>
       <%= simple_form_for [:owner, product, sale] do |f| %>
         <div class="col-12 mb-3 pt-5">
           <%= f.input :address,
-                      label: false,
+                      label: "Votre adresse",
                       required: true,
                       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none" },
                       wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
@@ -12,20 +12,19 @@
         </div>
         <div class="col-12 mb-3">
           <%= f.input :sale_capacity,
-                      label: false,
-                      placeholder: "Capacité de la vente" %>
+                      label: "Nombre de sacs",
+                      placeholder: "150" %>
         </div>
         <div class="col-12 mb-3">
           <%= f.input :end_date,
                       as: :date,
                       html5: true,
-                      label: false,
-                      placeholder: "Fin de la vente" %>
+                      label: "Fin de la vente" %>
         </div>
         <div class="col-12 mb-3">
           <%= f.input :price_reduction,
-                      label: false,
-                      placeholder: "Prix de la vente réduit" %>
+                      label: "Prix de la vente réduit",
+                      placeholder: "Prix à l'unité" %>
         </div>
         <div class="col-12 mb-3">
           <%= f.submit "Ajouter une vente", class: "btn btn-secondary btn-lg w-100", style: "border-radius: 30px;" %>
