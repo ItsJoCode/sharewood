@@ -6,7 +6,7 @@
   <% end %>
   <div class="card-wrapper" id="card-wrapper">
     <div class="card-pellet-style">
-      <%= render 'products/card_product', product: @sale.product %>
+      <%= render 'products/card_product', product: @sale.product, sale: @sale %>
       <br>
       <%= render 'sales/card_sale_footer', sale: @sale %>
     </div>
@@ -18,7 +18,7 @@
 <div class="sales-wrapper text-center">
   <div class="sale-submit">
       <% if @sale.confirmed? %>
-        <%= simple_form_for([:owner, @sale]) do |f| %>
+        <%= simple_form_for([:owner, @sale], data: {turbo: "false"}) do |f| %>
           <%= f.hidden_field :progress, as: :string, value: "done" %>
           <%= f.submit "Mettre en livraison", class: "btn btn-outline-secondary", style: "border-radius: 30px;" %>
         <% end %>

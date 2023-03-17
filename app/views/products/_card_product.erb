@@ -36,11 +36,16 @@
     <% else %>
       <%= product.brand %>
     <% end %>
-    <a class="info-description" data-bs-toggle="collapse" href="#collapsDescription" role="button" aria-expanded="false" aria-controls="collapsDescription">
+    <a class="info-description"
+       data-bs-toggle="collapse"
+       href="#collapsDescription<%= sale.id if local_assigns[:sale] %>"
+       role="button"
+       aria-expanded="false"
+       aria-controls="collapsDescription<%= sale.id if local_assigns[:sale] %>">
         <i class="fa-solid fa-circle-info"></i>
     </a>
   </p>
-  <p id="collapsDescription" class="collapse card-descript"><%= product.description %></p>
+  <p id="collapsDescription<%= sale.id if local_assigns[:sale] %>" class="collapse card-descript"><%= product.description %></p>
 </div>
 
 

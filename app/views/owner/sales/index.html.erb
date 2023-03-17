@@ -11,7 +11,7 @@
         <% @sales.select { |sale| sale.in_progress? }.each do |sale| %>
           <div class="card-pellet-style">
             <%= link_to owner_sale_path(sale), class:"text-reset text-decoration-none" do %>
-              <%= render 'products/card_product', product: sale.product %>
+              <%= render 'products/card_product', product: sale.product, sale: sale %>
               <br>
               <%= render 'sales/card_sale_footer', sale: sale %>
             <% end %>
@@ -24,20 +24,20 @@
         <% @sales.select { |sale| sale.confirmed? }.each do |sale| %>
           <div class="card-pellet-style">
             <%= link_to owner_sale_path(sale), class:"text-reset text-decoration-none" do %>
-              <%= render 'products/card_product', product: sale.product %>
+              <%= render 'products/card_product', product: sale.product, sale: sale %>
               <br>
               <%= render 'sales/card_sale_footer', sale: sale %>
             <% end %>
           </div>
         <% end %>
       </div>
-    <h2>Livrées</h2>
+    <h2 id="delivred-sales">Livrées</h2>
       <hr>
       <div class="cards">
         <% @sales.select { |sale| sale.done? }.each do |sale| %>
           <div class="card-pellet-style">
             <%= link_to owner_sale_path(sale), class:"text-reset text-decoration-none" do %>
-              <%= render 'products/card_product', product: sale.product %>
+              <%= render 'products/card_product', product: sale.product, sale: sale %>
               <br>
               <%= render 'sales/card_sale_footer', sale: sale %>
             <% end %>
@@ -50,7 +50,7 @@
         <% @sales.select { |sale| sale.cancel? }.each do |sale| %>
           <div class="card-pellet-style">
             <%= link_to owner_sale_path(sale), class:"text-reset text-decoration-none" do %>
-              <%= render 'products/card_product', product: sale.product %>
+              <%= render 'products/card_product', product: sale.product, sale: sale %>
               <br>
               <%= render 'sales/card_sale_footer', sale: sale %>
             <% end %>
