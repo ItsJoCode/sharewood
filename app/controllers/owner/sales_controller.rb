@@ -34,7 +34,7 @@ class Owner::SalesController < ApplicationController
 
   def update
     @sale.update(sale_params)
-    redirect_to owner_sale_path(@sale)
+    redirect_to owner_sales_path
   end
 
   private
